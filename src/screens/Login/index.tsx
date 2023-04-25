@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'space-between',
-		backgroundColor: Colors.green,
+		backgroundColor: Colors.white,
 		alignItems: 'center',
 	},
 	buttonsContainer: {
