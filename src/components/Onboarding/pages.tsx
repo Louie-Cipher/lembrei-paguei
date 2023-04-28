@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Image, Text } from 'react-native';
 import { Page } from 'react-native-onboarding-swiper';
-import Logo from '../../../assets/logo.svg';
 
 const styles = StyleSheet.create({
 	image: {
@@ -17,7 +16,10 @@ const pages: Page[] = [
 		backgroundColor: '#74ca54',
 		title: 'Boas vindas ao Lembrei, Paguei!',
 		subtitle: 'Seu app de controle financeiro',
-		image: <Logo width={200} height={200} color='#0ff' />,
+		image: <Image
+		 source={require('../../../assets/logo.png')} 
+		 style={styles.image}
+		/>,
 	},
 	{
 		backgroundColor: '#d5b777',
