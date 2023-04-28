@@ -6,46 +6,43 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import Colors from '../../utils/colors';
 import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
+interface propsHome {}
 
 export default function Home() {
 	const navigation = useNavigation<propsStack>();
+
+	const handleAddButton = () => {
+		navigation.navigate('AddConta');
+	};
+
+	const handleUserButton = () => {
+		navigation.navigate('Profile', { userId: '1' });
+	};
+
 	return (
 		<View style={styles.container}>
 			<SafeAreaView style={styles.safeArea}>
 				<ExpoStatusBar style='auto' />
 
-				<View style={styles.title}>
-					<Text style={[styles.titleText, { color: Colors.green }]}>
-						Lembrei,
-					</Text>
-					<Text style={[styles.titleText, { color: Colors.orange }]}>
-						Paguei!
-					</Text>
-				</View>
-				<Text style={styles.subtitle}>
-					Economize dinheiro.{'\n'} atinja seus objetivos.
-				</Text>
-
-				<View style={styles.buttonsContainer}>
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => navigation.navigate('Welcome')}
-					>
-						<LinearGradient
-							colors={[Colors.green, Colors.orange]}
-							style={styles.button}
-							start={{ x: 0, y: 0.9 }}
-							end={{ x: 1, y: 0 }}
-						>
-							<Text style={styles.buttonText}>Começar</Text>
-						</LinearGradient>
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => navigation.navigate('Login')}
-					>
-						<Text style={styles.buttonText}>Já tenho uma conta</Text>
-					</TouchableOpacity>
+				<View style={styles.footer}>
+					<View style={styles.footerLine} />
+					<View style={styles.footerContent}>
+						<TouchableOpacity onPress={handleAddButton}>
+							<LinearGradient
+								colors={[Colors.green, Colors.orange]}
+								start={{ x: 0, y: 0 }}
+								end={{ x: 0.8, y: 1 }}
+								style={styles.addButtonGradient}
+							>
+								<Text style={styles.addButtonText}>+</Text>
+							</LinearGradient>
+						</TouchableOpacity>
+						<TouchableOpacity onPress={handleUserButton}>
+							<FontAwesome name='user-circle-o' size={40} color='black' />
+						</TouchableOpacity>
+					</View>
 				</View>
 			</SafeAreaView>
 		</View>
@@ -57,60 +54,56 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'flex-end',
+		margin: 0,
+		padding: 0,
 	},
 	safeArea: {
 		flex: 1,
 		backgroundColor: '#0000',
 		alignItems: 'center',
 		justifyContent: 'center',
+		margin: 0,
+		padding: 0,
 		marginTop: StatusBar.currentHeight,
 	},
-	header: {
+	footer: {
+		position: 'absolute',
+		bottom: 0,
+		height: 80,
+		width: '100%',
+	},
+	footerLine: {
+		height: 1,
+		width: '100%',
+		backgroundColor: '#0005',
+		position: 'absolute',
+		top: 20,
+	},
+	footerContent: {
+		flex: 1,
+		paddingVertical: 10,
+		paddingHorizontal: 30,
+		margin: 0,
 		flexDirection: 'row',
 		alignItems: 'center',
-		paddingVertical: 25,
+		justifyContent: 'space-between',
 	},
-	title: {
-		marginLeft: 10,
-		flexDirection: 'column',
-		alignItems: 'center',
-	},
-	titleText: {
-		fontSize: 46,
-		fontWeight: 'bold',
-		textTransform: 'uppercase',
-		letterSpacing: 2,
-		margin: 0,
-		marginBottom: -15,
-		padding: 0,
-	},
-	subtitle: {
-		fontSize: 16,
-		fontWeight: 'bold',
-		textTransform: 'uppercase',
-		textAlign: 'center',
-		marginTop: 20,
-		marginBottom: 30,
-	},
-	buttonsContainer: {
-		display: 'flex',
-		flexDirection: 'column',
+	addButton: {
+		padding: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
+		borderRadius: 200,
 	},
-	button: {
-		backgroundColor: '#fff',
-		width: 250,
-		borderRadius: 10,
-		paddingVertical: 15,
-		paddingHorizontal: 30,
-		marginVertical: 10,
+	addButtonGradient: {
+		padding: 10,
 		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: 200,
 	},
-	buttonText: {
-		color: '#0a2c0e',
-		fontSize: 16,
-		fontWeight: 'bold',
-		textTransform: 'uppercase',
+	addButtonText: {
+		margin: 0,
+		padding: 0,
+		fontSize: 50,
+		color: Colors.white,
 	},
 });
