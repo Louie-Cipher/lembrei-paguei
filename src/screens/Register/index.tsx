@@ -5,6 +5,7 @@ import { propsStack } from '../../routes/Stack/Models';
 import { StatusBar } from 'expo-status-bar';
 import Colors from '../../utils/colors';
 import BaseTextInput from '../../components/BaseTextInput';
+import IsEmail from '../../utils/isEmail';
 
 export default () => {
 	const navigation = useNavigation<propsStack>();
@@ -22,9 +23,16 @@ export default () => {
 		if (!email) setEmailError(true);
 		if (!password) setPasswordError(true);
 
-		if (username && email && password) return navigation.navigate('Login');
+		if (!username || !email || !password)
+			return ToastAndroid.show('Preencha todos os campos', ToastAndroid.SHORT);
 
-		ToastAndroid.show('Preencha todos os campos', ToastAndroid.SHORT);
+		if (IsEmail(email) === false) {
+			setEmailError(true);
+			return ToastAndroid.show('Email inválido', ToastAndroid.SHORT);
+		}
+
+		// TODO: implement register
+		navigation.navigate('Home', { userId: '1' });
 	};
 
 	return (
@@ -105,7 +113,7 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.orange,
 	},
 	buttonText: {
-		color: Colors.green,
+		color: Colors.white,
 		fontSize: 20,
 		fontWeight: 'bold',
 	},
