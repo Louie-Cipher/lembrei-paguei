@@ -1,49 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import Colors from '../../utils/colors';
-import { LinearGradient } from 'expo-linear-gradient';
-import { FontAwesome } from '@expo/vector-icons';
-
-interface propsHome {}
+import Footer from '../../components/Footer';
 
 export default function Home() {
 	const navigation = useNavigation<propsStack>();
-
-	const handleAddButton = () => {
-		navigation.navigate('AddConta');
-	};
-
-	const handleUserButton = () => {
-		navigation.navigate('Profile', { userId: '1' });
-	};
 
 	return (
 		<View style={styles.container}>
 			<SafeAreaView style={styles.safeArea}>
 				<ExpoStatusBar style='auto' />
 
-				<View style={styles.footer}>
-					<View style={styles.footerLine} />
-					<View style={styles.footerContent}>
-						<TouchableOpacity onPress={handleAddButton}>
-							<LinearGradient
-								colors={[Colors.green, Colors.orange]}
-								start={{ x: 0, y: 0 }}
-								end={{ x: 0.8, y: 1 }}
-								style={styles.addButtonGradient}
-							>
-								<Text style={styles.addButtonText}>+</Text>
-							</LinearGradient>
-						</TouchableOpacity>
-						<TouchableOpacity onPress={handleUserButton}>
-							<FontAwesome name='user-circle-o' size={40} color='black' />
-						</TouchableOpacity>
-					</View>
-				</View>
+				<Footer />
 			</SafeAreaView>
 		</View>
 	);
