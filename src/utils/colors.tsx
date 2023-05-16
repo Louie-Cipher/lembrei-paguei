@@ -1,9 +1,9 @@
 export default {
-	green: '#50f674',
+	green: '#82DF78',
 	greenDark: '#3dba58',
 
 	brightOrange: '#efc99f',
-	orange: '#ff9a4e',
+	orange: '#FF914D',
 	orangeDark: '#be6013',
 
 	white: '#ffffff',
