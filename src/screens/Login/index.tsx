@@ -32,7 +32,6 @@ export default () => {
 
 		const isEmail = IsEmail(username);
 
-		
 		// TODO: implement login
 		navigation.navigate('Home', { userId: '1' });
 	};
@@ -63,15 +62,6 @@ export default () => {
 				</TouchableOpacity>
 			</View>
 
-			<Text style={styles.loginRedirect}>
-				Não tem uma conta?{' '}
-				<Text
-					style={{ fontWeight: 'bold', color: Colors.orange }}
-					onPress={() => navigation.navigate('Register')}
-				>
-					Cadastre-se
-				</Text>
-			</Text>
 		</SafeAreaView>
 	);
 };
