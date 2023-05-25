@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import BillsIcon from '../../../assets/money_bill_cropped.svg';
 
 export default () => {
 	const navigation = useNavigation<propsStack>();
@@ -13,10 +14,21 @@ export default () => {
 			<View style={styles.footerLine} />
 
 			<View style={styles.footerContent}>
+
+				{/* Home Button */}
 				<TouchableOpacity
+					style={styles.button}
 					onPress={() => navigation.navigate('Home', { userId: '1' })}
 				>
 					<AntDesign name='home' size={40} color={Colors.orange} />
+				</TouchableOpacity>
+
+				{/* Bills Button */}
+				<TouchableOpacity
+					style={styles.button}
+					// onPress={() => navigation.navigate('Contas', { userId: '1' })}
+				>
+					<BillsIcon width={40} height={40} />
 				</TouchableOpacity>
 
 				{/* Add button */}
@@ -29,6 +41,7 @@ export default () => {
 
 				{/* Chart Button */}
 				<TouchableOpacity
+					style={styles.button}
 					onPress={() => navigation.navigate('Graficos', { userId: '1' })}
 				>
 					<FontAwesome name='bar-chart' size={40} color={Colors.orange} />
@@ -36,6 +49,7 @@ export default () => {
 
 				{/* User Button */}
 				<TouchableOpacity
+					style={styles.button}
 					onPress={() => navigation.navigate('Profile', { userId: '1' })}
 				>
 					<FontAwesome name='user-circle-o' size={40} color={Colors.orange} />
@@ -50,6 +64,7 @@ const styles = StyleSheet.create({
 		bottom: 0,
 		height: 80,
 		width: '100%',
+		justifyContent: 'center',
 	},
 	footerLine: {
 		height: 1,
@@ -68,11 +83,15 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	addButton: {
-		flex: 1,
-		padding: 10,
+		margin: 0,
 		marginTop: -40,
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderRadius: 200,
 	},
+	button: {
+		margin: 0,
+		alignItems: 'center',
+		justifyContent: 'center',
+	}
 });
