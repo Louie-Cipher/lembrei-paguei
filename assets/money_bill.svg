@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="512"
-   height="512"
-   viewBox="0 0 512 512"
+   width="463"
+   height="463"
+   viewBox="0 0 463 463"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="0.78710938"
-     inkscape:cx="309.99504"
-     inkscape:cy="190.57072"
+     inkscape:cx="303.00744"
+     inkscape:cy="191.84119"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -38,38 +38,39 @@
   <g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-84.631592,-24.74523)">
     <path
        id="rect111"
        style="fill:none;stroke:#ff914d;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 171.05909,39.74523 -71.4275,71.42752 V 472.25477 H 412.36841 V 39.74523 Z" />
+       d="m 231.19068,39.99046 -71.4275,71.42752 V 472.5 H 472.5 V 39.99046 Z" />
     <path
        style="fill:none;stroke:#ff914d;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 147.6938,173.54768 H 364.06132"
+       d="M 207.82539,173.79291 H 424.19291"
        id="path1744" />
     <path
        style="fill:none;stroke:#ff914d;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 147.6938,232.67135 H 364.06132"
+       d="M 207.82539,232.91658 H 424.19291"
        id="path1744-4" />
     <path
        style="fill:none;stroke:#ff914d;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 147.6938,291.79505 H 364.06132"
+       d="M 207.82539,292.04028 H 424.19291"
        id="path1744-4-8" />
     <path
        style="fill:none;stroke:#ff914d;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 145.27208,350.91872 H 306.1014"
+       d="M 205.40367,351.16395 H 366.23299"
        id="path1744-4-8-6" />
     <text
        xml:space="preserve"
        style="font-size:166.105px;fill:#ff914d;fill-opacity:1;stroke:#ff914d;stroke-width:4.53486;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       x="285.93686"
-       y="494.07141"
+       x="341.03488"
+       y="494.33905"
        id="text1876"
        transform="scale(1.0913567,0.91629071)"><tspan
          sodipodi:role="line"
          id="tspan1874"
-         x="285.93686"
-         y="494.07141"
+         x="341.03488"
+         y="494.33905"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'GOST Common';-inkscape-font-specification:'GOST Common';fill:#ff914d;fill-opacity:1;stroke:#ff914d;stroke-width:4.53486;stroke-dasharray:none;stroke-opacity:1">$</tspan></text>
     <path
        id="rect4347"
@@ -77,7 +78,7 @@
        d="m 104.47501,59.750523 h 91.21678 V 150.9673 h -91.21678 z" />
     <path
        style="fill:none;fill-opacity:1;stroke:#ff914d;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 109.86746,118.93981 h 71.50867 V 49.508868"
+       d="m 169.99905,119.18504 h 71.50867 V 49.754098"
        id="path5091" />
   </g>
 </svg>

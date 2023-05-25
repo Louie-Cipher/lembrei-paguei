@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import BillsIcon from '../../../assets/money_bill_cropped.svg';
+import BillsIcon from '../../../assets/money_bill.svg';
 
 export default () => {
 	const navigation = useNavigation<propsStack>();
@@ -14,7 +14,6 @@ export default () => {
 			<View style={styles.footerLine} />
 
 			<View style={styles.footerContent}>
-
 				{/* Home Button */}
 				<TouchableOpacity
 					style={styles.button}
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	footerLine: {
-		height: 1,
+		height: 2,
 		width: '100%',
 		backgroundColor: '#0005',
 		position: 'absolute',
@@ -93,5 +92,5 @@ const styles = StyleSheet.create({
 		margin: 0,
 		alignItems: 'center',
 		justifyContent: 'center',
-	}
+	},
 });
