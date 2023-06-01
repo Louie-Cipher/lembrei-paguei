@@ -4,8 +4,9 @@ import Colors from '../../utils/colors';
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import BillsIcon from '../../../assets/money_bill.svg';
+import AddIcon from '../../../assets/add.svg';
+import colors from '../../utils/colors';
 
 export default () => {
 	const navigation = useNavigation<propsStack>();
@@ -15,48 +16,60 @@ export default () => {
 
 			<View style={styles.footerContent}>
 				{/* Home Button */}
-				<TouchableOpacity
-					style={styles.button}
+				<AntDesign
+					name='home'
+					size={40}
+					color={Colors.orange}
 					onPress={() => navigation.navigate('Home', { userId: '1' })}
-				>
-					<AntDesign name='home' size={40} color={Colors.orange} />
-				</TouchableOpacity>
+					style={styles.button}
+				/>
 
 				{/* Bills Button */}
-				<TouchableOpacity
-					style={styles.button}
+				<BillsIcon
+					width={40}
+					height={40}
 					// onPress={() => navigation.navigate('Contas', { userId: '1' })}
-				>
-					<BillsIcon width={40} height={40} />
-				</TouchableOpacity>
+					style={styles.button}
+				/>
 
 				{/* Add button */}
-				<TouchableOpacity
-					style={styles.addButton}
+				<AddIcon
+					width={70}
+					height={70}
 					onPress={() => navigation.navigate('AddConta')}
-				>
-					<Ionicons name='add-circle' size={85} color={Colors.green} />
-				</TouchableOpacity>
+					style={styles.addButton}
+				/>
 
 				{/* Chart Button */}
-				<TouchableOpacity
-					style={styles.button}
+				<FontAwesome
+					name='bar-chart'
+					size={40}
+					color={Colors.orange}
 					onPress={() => navigation.navigate('Graficos', { userId: '1' })}
-				>
-					<FontAwesome name='bar-chart' size={40} color={Colors.orange} />
-				</TouchableOpacity>
+					style={styles.button}
+				/>
 
 				{/* User Button */}
-				<TouchableOpacity
-					style={styles.button}
+				<FontAwesome
+					name='user-circle-o'
+					size={40}
+					color={Colors.orange}
 					onPress={() => navigation.navigate('Profile', { userId: '1' })}
-				>
-					<FontAwesome name='user-circle-o' size={40} color={Colors.orange} />
-				</TouchableOpacity>
+					style={styles.button}
+				/>
 			</View>
 		</View>
 	);
 };
+
+const AddButton = () => {
+	return (
+		<TouchableOpacity style={styles.addButton}>
+			<View />
+		</TouchableOpacity>
+	);
+}
+
 const styles = StyleSheet.create({
 	footer: {
 		position: 'absolute',
