@@ -6,6 +6,7 @@ import Home from '../../screens/Home';
 import Login from '../../screens/Login';
 import Welcome from '../../screens/Welcome';
 import Graphics from '../../screens/Graphics';
+import AddConta from '../../screens/AddConta';
 
 const { Navigator, Screen } = createNativeStackNavigator<propsNavigationStack>();
 
@@ -16,6 +17,10 @@ export default () => {
 			<Screen name='Home' component={Home} />
 			<Screen name='Login' component={Login} />
 			<Screen name='Graficos' component={Graphics} />
+			<Screen name='AddConta' component={AddConta} options={{
+				presentation: 'transparentModal',
+				animation: 'fade_from_bottom'
+			}}/>
 		</Navigator>
 	);
 };
