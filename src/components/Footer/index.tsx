@@ -13,14 +13,14 @@ export default () => {
 	return (
 		<View style={styles.footer}>
 			<View style={styles.footerLine} />
-
+			
 			<View style={styles.footerContent}>
 				{/* Home Button */}
 				<AntDesign
 					name='home'
 					size={40}
 					color={Colors.orange}
-					onPress={() => navigation.navigate('Home', { userId: '1' })}
+					// onPress={() => navigation.navigate('Home', { userId: '1' })}
 					style={styles.button}
 				/>
 
@@ -36,7 +36,7 @@ export default () => {
 				<AddIcon
 					width={70}
 					height={70}
-					onPress={() => navigation.navigate('AddConta')}
+					// onPress={() => navigation.navigate('AddConta')}
 					style={styles.addButton}
 				/>
 
@@ -45,7 +45,7 @@ export default () => {
 					name='bar-chart'
 					size={40}
 					color={Colors.orange}
-					onPress={() => navigation.navigate('Graficos', { userId: '1' })}
+					// onPress={() => navigation.navigate('Graficos', { userId: '1' })}
 					style={styles.button}
 				/>
 
@@ -54,10 +54,11 @@ export default () => {
 					name='user-circle-o'
 					size={40}
 					color={Colors.orange}
-					onPress={() => navigation.navigate('Profile', { userId: '1' })}
+					// onPress={() => navigation.navigate('Profile', { userId: '1' })}
 					style={styles.button}
 				/>
 			</View>
+
 		</View>
 	);
 };
