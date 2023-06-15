@@ -17,7 +17,6 @@ export default function Home() {
 			<SafeAreaView style={styles.safeArea}>
 				<ExpoStatusBar style='auto' />
 
-				<Footer />
 			</SafeAreaView>
 		</View>
 	);

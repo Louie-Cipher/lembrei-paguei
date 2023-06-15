@@ -33,7 +33,6 @@ export default function Home() {
 					optio ipsa ducimus, laboriosam iusto cumque error reprehenderit
 				</Text>
 
-				<Footer />
 			</SafeAreaView>
 		</View>
 	);

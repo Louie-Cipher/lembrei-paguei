@@ -6,31 +6,32 @@ import {
 	useWindowDimensions,
 } from 'react-native';
 import colors from '../../utils/colors';
-import Footer from '../../components/Footer';
+import { propsBottom } from '../../routes/Bottom/Models';
+import { useNavigation } from '@react-navigation/native';
 
 export default () => {
+	const navigation = useNavigation<propsBottom>();
 	const { height, width } = useWindowDimensions();
 
 	const buttonsWidth = width * 0.6;
 
 	return (
 		<View style={styles.container}>
-			<View style={[styles.buttonsContainer, { height: height * 0.5 }]}>
-				<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
-					<Text style={styles.buttonText}>Adicionar Meta</Text>
-				</TouchableOpacity>
+			<TouchableOpacity onPress={() => navigation.goBack()}>
+				<View style={[styles.buttonsContainer, { height: height * 0.5 }]}>
+					<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
+						<Text style={styles.buttonText}>Adicionar Meta</Text>
+					</TouchableOpacity>
 
-				<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
-					<Text style={styles.buttonText}>Adicionar Gasto</Text>
-				</TouchableOpacity>
+					<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
+						<Text style={styles.buttonText}>Adicionar Gasto</Text>
+					</TouchableOpacity>
 
-				<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
-					<Text style={styles.buttonText}>Adicionar Conta</Text>
-				</TouchableOpacity>
-			</View>
-
-			<Footer />
-			
+					<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
+						<Text style={styles.buttonText}>Adicionar Conta</Text>
+					</TouchableOpacity>
+				</View>
+			</TouchableOpacity>
 		</View>
 	);
 };
