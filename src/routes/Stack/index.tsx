@@ -2,25 +2,18 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { propsNavigationStack } from './Models';
 
-import Home from '../../screens/Home';
 import Login from '../../screens/Login';
 import Welcome from '../../screens/Welcome';
-import Graphics from '../../screens/Graphics';
-import AddConta from '../../screens/AddConta';
+import LoggedRoutes from '../Bottom';
 
 const { Navigator, Screen } = createNativeStackNavigator<propsNavigationStack>();
 
 export default () => {
 	return (
-		<Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
+		<Navigator initialRouteName='LoggedRoutes' screenOptions={{ headerShown: false }}>
 			<Screen name='Welcome' component={Welcome} />
-			<Screen name='Home' component={Home} />
 			<Screen name='Login' component={Login} />
-			<Screen name='Graficos' component={Graphics} />
-			<Screen name='AddConta' component={AddConta} options={{
-				presentation: 'transparentModal',
-				animation: 'fade_from_bottom'
-			}}/>
+			<Screen name='LoggedRoutes' component={LoggedRoutes} />
 		</Navigator>
 	);
 };
