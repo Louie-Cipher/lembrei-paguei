@@ -26,17 +26,18 @@ export default function Home() {
 					totalLabel='Limite:'
 					totalValue={600}
 					totalColor='#fff'
+					isExceedGood={false}
 				/>
 
 				<LinePercentItem
 					title='Metas de economia'
 					currentLabel='Economizou:'
-					currentValue={190.99}
+					currentValue={230.55}
 					currentColor={Colors.green}
 					totalLabel='Meta:'
 					totalValue={200}
 					totalColor='#fff'
-					crownWhenBigger
+					isExceedGood
 				/>
 
 			</SafeAreaView>
@@ -65,10 +66,12 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 30,
+		fontWeight: '700',
 		color: Colors.orange,
 	},
 	subtitle: {
 		fontSize: 20,
+		fontWeight: '700',
 		color: Colors.orange,
 	},
 });
