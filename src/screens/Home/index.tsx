@@ -4,8 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import LinePercentItem from '../../components/LinePercentItem';
 import Colors from '../../utils/colors';
-import Footer from '../../components/Footer';
 
 export default function Home() {
 	const navigation = useNavigation<propsStack>();
@@ -18,29 +18,37 @@ export default function Home() {
 				<Text style={styles.title}>Olá, {'{user}'}</Text>
 				<Text style={styles.subtitle}>Seu resumo</Text>
 
-				<Text style={styles.placeholderItem}>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates,
-					optio ipsa ducimus, laboriosam iusto cumque error reprehenderit
-				</Text>
+				<LinePercentItem
+					title='Gastos gerais'
+					currentLabel='Atual:'
+					currentValue={500}
+					currentColor={Colors.green}
+					totalLabel='Limite:'
+					totalValue={600}
+					totalColor='#fff'
+				/>
 
-				<Text style={styles.placeholderItem}>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates,
-					optio ipsa ducimus, laboriosam iusto cumque error reprehenderit
-				</Text>
-
-				<Text style={styles.placeholderItem}>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates,
-					optio ipsa ducimus, laboriosam iusto cumque error reprehenderit
-				</Text>
+				<LinePercentItem
+					title='Metas de economia'
+					currentLabel='Economizou:'
+					currentValue={190.99}
+					currentColor={Colors.green}
+					totalLabel='Meta:'
+					totalValue={200}
+					totalColor='#fff'
+					crownWhenBigger
+				/>
 
 			</SafeAreaView>
 		</View>
 	);
 }
 
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		width: '100%',
 		alignItems: 'center',
 		justifyContent: 'flex-end',
 		margin: 0,
@@ -48,6 +56,7 @@ const styles = StyleSheet.create({
 	},
 	safeArea: {
 		flex: 1,
+		width: '100%',
 		backgroundColor: '#0000',
 		alignItems: 'center',
 		margin: 0,
@@ -61,14 +70,5 @@ const styles = StyleSheet.create({
 	subtitle: {
 		fontSize: 20,
 		color: Colors.orange,
-	},
-
-	placeholderItem: {
-		color: Colors.green,
-		fontSize: 20,
-		backgroundColor: '#0006',
-		padding: 10,
-		margin: 10,
-		borderRadius: 10,
 	},
 });
