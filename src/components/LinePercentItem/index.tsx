@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+// Icons
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
 
 interface LinePercentItemProps {
 	title: string;
@@ -10,7 +12,7 @@ interface LinePercentItemProps {
 	currentLabel: string;
 	currentValue: number;
 	currentColor?: string;
-	crownWhenBigger?: boolean | undefined;
+	isExceedGood?: boolean | undefined;
 }
 export default ({
 	title,
@@ -20,17 +22,17 @@ export default ({
 	currentLabel,
 	currentValue,
 	currentColor = 'green',
-	crownWhenBigger = false,
+	isExceedGood = false,
 }: LinePercentItemProps) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>{title}</Text>
 			<View style={styles.spaceBetween}>
 				<Text style={styles.text}>
-					{currentLabel} R${currentValue}
+					{currentLabel} R${currentValue.toFixed(2).replace('.', ',')}
 				</Text>
 				<Text style={styles.text}>
-					{totalLabel} R${totalValue}
+					{totalLabel} R${totalValue.toFixed(2).replace('.', ',')}
 				</Text>
 			</View>
 
@@ -42,18 +44,24 @@ export default ({
 					totalColor={totalColor}
 				/>
 
-				{crownWhenBigger && currentValue > totalValue && (
-					<MaterialCommunityIcons
-						name='crown'
-						size={40}
-						color='#ddaa00'
-						style={{
-							position: 'absolute',
-							right: -5,
-							top: -15,
-							transform: [{ rotate: '20deg' }],
-						}}
-					/>
+				{currentValue > totalValue && (
+					<>
+						{isExceedGood ? (
+							<MaterialCommunityIcons
+								name='crown'
+								size={40}
+								color='#ddaa00'
+								style={styles.exceedIcon}
+							/>
+						) : (
+							<Foundation
+								name='alert'
+								size={40}
+								color='#f11'
+								style={styles.exceedIcon}
+							/>
+						)}
+					</>
 				)}
 			</View>
 		</View>
@@ -72,7 +80,6 @@ const Line = ({
 	currentColor = 'green',
 	totalColor = 'red',
 }: LineProps) => {
-	const biggerThanTotal = currentValue > totalValue;
 
 	return (
 		<View
@@ -85,9 +92,10 @@ const Line = ({
 		>
 			<View
 				style={{
-					width: biggerThanTotal
-						? '100%'
-						: `${(currentValue / totalValue) * 100}%`,
+					width:
+						currentValue > totalValue
+							? '100%'
+							: `${(currentValue / totalValue) * 100}%`,
 					height: '100%',
 					borderRadius: 10,
 					backgroundColor: currentColor,
@@ -118,5 +126,11 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		marginVertical: 10,
+	},
+	exceedIcon: {
+		position: 'absolute',
+		right: -5,
+		top: -15,
+		transform: [{ rotate: '20deg' }],
 	},
 });
