@@ -8,11 +8,13 @@ import colors from '../../utils/colors';
 import Home from '../../screens/Home';
 import Graphics from '../../screens/Graphics';
 import AddConta from '../../screens/AddConta';
+import Contas from '../../screens/Contas';
 
 // icons
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import AddIcon from '../../../assets/add.svg';
+import MoneyBillIcon from '../../../assets/money_bill.svg';
 
 const { Navigator, Screen } = createBottomTabNavigator<propsNavigationBottomTabs>();
 
@@ -54,6 +56,22 @@ export default () => {
 					),
 				}}
 			/>
+			
+			<Screen
+				name='Contas'
+				component={Contas}
+				options={{
+					tabBarIcon: ({ focused, color, size }) => (
+						<MoneyBillIcon
+							width={size}
+							height={size}
+							fill={colors.orange}
+							style={styles.addButton}
+						/>
+					),
+				}}
+			/>
+
 			<Screen
 				name='Profile'
 				component={Home}

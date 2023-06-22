@@ -5,6 +5,7 @@ export type propsNavigationBottomTabs = {
 	Home: { userId: string };
 	Profile: { userId: string };
 	Graficos: { userId: string };
+	Contas: { userId: string };
 };
 
 export type propsBottom = NativeStackNavigationProp<propsNavigationBottomTabs>;
