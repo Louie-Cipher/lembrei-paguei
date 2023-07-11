@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
 	},
 	exceedIcon: {
 		position: 'absolute',
-		right: -5,
+		right: -15,
 		top: -15,
 		transform: [{ rotate: '20deg' }],
 	},
