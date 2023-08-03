@@ -13,7 +13,7 @@ export default () => {
 	return (
 		<View style={styles.footer}>
 			<View style={styles.footerLine} />
-			
+
 			<View style={styles.footerContent}>
 				{/* Home Button */}
 				<AntDesign
@@ -58,7 +58,6 @@ export default () => {
 					style={styles.button}
 				/>
 			</View>
-
 		</View>
 	);
 };
@@ -69,7 +68,7 @@ const AddButton = () => {
 			<View />
 		</TouchableOpacity>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	footer: {

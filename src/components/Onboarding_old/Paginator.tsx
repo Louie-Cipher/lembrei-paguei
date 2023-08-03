@@ -38,7 +38,7 @@ export default ({ data, scrollX }: PaginatorProps) => {
 			})}
 		</View>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {
