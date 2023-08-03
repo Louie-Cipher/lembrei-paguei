@@ -8,6 +8,7 @@ import colors from '../../utils/colors';
 import Home from '../../screens/Home';
 import Graphics from '../../screens/Graphics';
 import AddConta from '../../screens/AddConta';
+import Settings from '../../screens/Settings';
 import Contas from '../../screens/Contas';
 
 // icons
@@ -21,6 +22,7 @@ const { Navigator, Screen } = createBottomTabNavigator<propsNavigationBottomTabs
 export default () => {
 	return (
 		<Navigator
+			// TODO - initialRouteName='Home'
 			initialRouteName='Home'
 			screenOptions={{ headerShown: false, tabBarShowLabel: false }}
 			backBehavior='initialRoute'
@@ -49,14 +51,16 @@ export default () => {
 				options={{
 					tabBarIcon: ({ focused, color, size }) => (
 						<AddIcon
-							width={size * 2}
-							height={size * 2}
-							style={styles.addButton}
+							width={size * 2.5}
+							height={size * 2.5}
+							style={{
+								top: -10,
+							}}
 						/>
 					),
 				}}
 			/>
-			
+
 			<Screen
 				name='Contas'
 				component={Contas}
@@ -66,7 +70,7 @@ export default () => {
 							width={size}
 							height={size}
 							fill={colors.orange}
-							style={styles.addButton}
+							style={styles.button}
 						/>
 					),
 				}}
@@ -74,7 +78,7 @@ export default () => {
 
 			<Screen
 				name='Profile'
-				component={Home}
+				component={Settings}
 				options={{
 					tabBarIcon: ({ focused, color, size }) => (
 						<FontAwesome
@@ -90,7 +94,7 @@ export default () => {
 };
 
 const styles = StyleSheet.create({
-	addButton: {
+	button: {
 		position: 'absolute',
 		bottom: 10,
 	},
