@@ -1,9 +1,17 @@
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { StatusBar } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import Colors from '../../utils/colors';
+import {
+	Container,
+	SafeArea,
+	Title,
+	ButtonsContainer,
+	Button,
+	SocialLoginText,
+} from './styles';
 
 import GoogleLogo from '../../../assets/google-g-logo.svg';
 import FacebookLogo from '../../../assets/facebook-logo.svg';
@@ -12,13 +20,13 @@ export default () => {
 	const navigation = useNavigation<propsStack>();
 
 	return (
-		<SafeAreaView style={styles.container}>
+		<Container>
 			<ExpoStatusBar style='auto' />
 
-			<View style={styles.contentArea}>
-				<Text style={styles.title}>Login ou cadastro</Text>
+			<SafeArea style={styles.contentArea}>
+				<Title>Login ou cadastro</Title>
 
-				<View style={styles.buttonsContainer}>
+				<ButtonsContainer>
 					<SocialLoginButton
 						onPress={() => navigation.navigate('LoggedRoutes')}
 						text='Entrar com Google'
@@ -32,9 +40,9 @@ export default () => {
 						color='#fff'
 						backgroundColor='#1977f3'
 					/>
-				</View>
-			</View>
-		</SafeAreaView>
+				</ButtonsContainer>
+			</SafeArea>
+		</Container>
 	);
 };
 
@@ -52,17 +60,11 @@ const SocialLoginButton = ({
 	color,
 	backgroundColor,
 }: SocialLoginButtonProps) => (
-	<TouchableOpacity
-		onPress={onPress}
-		style={[
-			styles.socialLoginButton,
-			{ backgroundColor: backgroundColor || Colors.white },
-		]}
-	>
-		<View style={styles.socialLoginIcon}>{icon}</View>
+	<Button onPress={onPress} backgroundColor={backgroundColor || Colors.white}>
+		<View>{icon}</View>
 
-		<Text style={[styles.socialLoginText, { color: color || '#000' }]}>{text}</Text>
-	</TouchableOpacity>
+		<SocialLoginText color={color || '#000'}>{text}</SocialLoginText>
+	</Button>
 );
 
 const styles = StyleSheet.create({
@@ -100,7 +102,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 	},
-	socialLoginIcon: {},
 	socialLoginText: {
 		flex: 1,
 		textAlign: 'center',

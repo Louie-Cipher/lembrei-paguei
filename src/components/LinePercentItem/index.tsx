@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {
+	Container,
+	SpaceBetween,
+	Text,
+	Title,
+	LineTotal,
+	LineCurrent,
+	exceedIcon,
+} from './styles';
 
 // Icons
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -25,18 +33,18 @@ export default ({
 	isExceedGood = false,
 }: LinePercentItemProps) => {
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>{title}</Text>
-			<View style={styles.spaceBetween}>
-				<Text style={styles.text}>
+		<Container>
+			<Title>{title}</Title>
+			<SpaceBetween>
+				<Text>
 					{currentLabel} R${currentValue.toFixed(2).replace('.', ',')}
 				</Text>
-				<Text style={styles.text}>
+				<Text>
 					{totalLabel} R${totalValue.toFixed(2).replace('.', ',')}
 				</Text>
-			</View>
+			</SpaceBetween>
 
-			<View style={styles.spaceBetween}>
+			<SpaceBetween>
 				<Line
 					currentValue={currentValue}
 					currentColor={currentColor}
@@ -51,20 +59,20 @@ export default ({
 								name='crown'
 								size={40}
 								color='#ddaa00'
-								style={styles.exceedIcon}
+								style={exceedIcon}
 							/>
 						) : (
 							<Foundation
 								name='alert'
 								size={40}
 								color='#f11'
-								style={styles.exceedIcon}
+								style={exceedIcon}
 							/>
 						)}
 					</>
 				)}
-			</View>
-		</View>
+			</SpaceBetween>
+		</Container>
 	);
 };
 
@@ -79,58 +87,8 @@ const Line = ({
 	totalValue,
 	currentColor = 'green',
 	totalColor = 'red',
-}: LineProps) => {
-
-	return (
-		<View
-			style={{
-				width: '100%',
-				height: 15,
-				borderRadius: 10,
-				backgroundColor: totalColor,
-			}}
-		>
-			<View
-				style={{
-					width:
-						currentValue > totalValue
-							? '100%'
-							: `${(currentValue / totalValue) * 100}%`,
-					height: '100%',
-					borderRadius: 10,
-					backgroundColor: currentColor,
-				}}
-			/>
-		</View>
-	);
-};
-
-const styles = StyleSheet.create({
-	container: {
-		width: '90%',
-		padding: 10,
-		margin: 10,
-		borderRadius: 10,
-		backgroundColor: '#E6DFDF',
-	},
-	title: {
-		textAlign: 'center',
-		fontSize: 20,
-		fontWeight: 'bold',
-	},
-	text: {
-		fontWeight: '700',
-	},
-	spaceBetween: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		marginVertical: 10,
-	},
-	exceedIcon: {
-		position: 'absolute',
-		right: -15,
-		top: -15,
-		transform: [{ rotate: '20deg' }],
-	},
-});
+}: LineProps) => (
+	<LineTotal color={totalColor}>
+		<LineCurrent color={currentColor} percent={(currentValue / totalValue) * 100} />
+	</LineTotal>
+);
