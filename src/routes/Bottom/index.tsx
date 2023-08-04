@@ -16,15 +16,25 @@ import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import AddIcon from '../../../assets/add.svg';
 import MoneyBillIcon from '../../../assets/money_bill.svg';
+import { useTheme } from 'styled-components';
 
 const { Navigator, Screen } = createBottomTabNavigator<propsNavigationBottomTabs>();
 
 export default () => {
+	const theme = useTheme();
+
 	return (
 		<Navigator
 			// TODO - initialRouteName='Home'
 			initialRouteName='Home'
-			screenOptions={{ headerShown: false, tabBarShowLabel: false }}
+			screenOptions={{
+				headerShown: false,
+				tabBarShowLabel: false,
+				tabBarStyle: {
+					backgroundColor: theme.quarterTone,
+					borderTopColor: theme.quarterTone,
+				},
+			}}
 			backBehavior='initialRoute'
 		>
 			<Screen
