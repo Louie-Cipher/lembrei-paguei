@@ -11,7 +11,6 @@ import { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import SelectDropdown from 'react-native-select-dropdown';
 import colors from '../../utils/colors';
-import { set } from 'react-native-reanimated';
 
 export default () => {
 	const [theme, setTheme] = useState('default');
