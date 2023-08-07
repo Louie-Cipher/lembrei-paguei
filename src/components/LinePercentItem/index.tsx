@@ -7,29 +7,22 @@ import {
 	LineCurrent,
 	exceedIcon,
 } from './styles';
-
-// Icons
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Foundation } from '@expo/vector-icons';
 
 interface LinePercentItemProps {
 	title: string;
 	totalLabel: string;
 	totalValue: number;
-	totalColor?: string;
 	currentLabel: string;
 	currentValue: number;
-	currentColor?: string;
 	isExceedGood?: boolean | undefined;
 }
 export default ({
 	title,
 	totalLabel,
 	totalValue,
-	totalColor = 'red',
 	currentLabel,
 	currentValue,
-	currentColor = 'green',
 	isExceedGood = false,
 }: LinePercentItemProps) => {
 	return (
@@ -46,30 +39,18 @@ export default ({
 
 			<SpaceBetween>
 				<Line
+					isExceedGood={isExceedGood}
 					currentValue={currentValue}
-					currentColor={currentColor}
 					totalValue={totalValue}
-					totalColor={totalColor}
 				/>
 
 				{currentValue > totalValue && (
-					<>
-						{isExceedGood ? (
-							<MaterialCommunityIcons
-								name='crown'
-								size={40}
-								color='#ddaa00'
-								style={exceedIcon}
-							/>
-						) : (
-							<Foundation
-								name='alert'
-								size={40}
-								color='#f11'
-								style={exceedIcon}
-							/>
-						)}
-					</>
+					<MaterialCommunityIcons
+						name={isExceedGood ? 'crown' : 'alert'}
+						color='#ffff00'
+						size={40}
+						style={exceedIcon}
+					/>
 				)}
 			</SpaceBetween>
 		</Container>
@@ -79,16 +60,13 @@ export default ({
 interface LineProps {
 	currentValue: number;
 	totalValue: number;
-	currentColor?: string;
-	totalColor?: string;
+	isExceedGood?: boolean | undefined;
 }
-const Line = ({
-	currentValue,
-	totalValue,
-	currentColor = 'green',
-	totalColor = 'red',
-}: LineProps) => (
-	<LineTotal color={totalColor}>
-		<LineCurrent color={currentColor} percent={(currentValue / totalValue) * 100} />
+const Line = ({ currentValue, totalValue, isExceedGood = false }: LineProps) => (
+	<LineTotal>
+		<LineCurrent
+			isExceedGood={isExceedGood}
+			percent={Math.min((currentValue / totalValue) * 100, 100)}
+		/>
 	</LineTotal>
 );

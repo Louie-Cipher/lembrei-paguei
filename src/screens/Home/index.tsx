@@ -3,11 +3,12 @@ import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import LinePercentItem from '../../components/LinePercentItem';
-import Colors from '../../utils/colors';
 import { Container, SafeArea, Title, Subtitle } from './styles';
+import { useTheme } from 'styled-components';
 
 export default function Home() {
 	const navigation = useNavigation<propsStack>();
+	const theme = useTheme();
 
 	return (
 		<Container>
@@ -20,21 +21,17 @@ export default function Home() {
 				<LinePercentItem
 					title='Gastos gerais'
 					currentLabel='Atual:'
-					currentValue={500}
-					currentColor={Colors.green}
+					currentValue={700}
 					totalLabel='Limite:'
 					totalValue={600}
-					totalColor='#fff'
 				/>
 
 				<LinePercentItem
 					title='Metas de economia'
 					currentLabel='Economizou:'
 					currentValue={230.55}
-					currentColor={Colors.green}
 					totalLabel='Meta:'
 					totalValue={200}
-					totalColor='#fff'
 					isExceedGood
 				/>
 			</SafeArea>
