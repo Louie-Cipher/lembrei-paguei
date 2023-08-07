@@ -1,64 +1,25 @@
-import {
-	StyleSheet,
-	View,
-	Text,
-	TouchableOpacity,
-	useWindowDimensions,
-} from 'react-native';
-import colors from '../../utils/colors';
 import { propsBottom } from '../../routes/Bottom/Models';
 import { useNavigation } from '@react-navigation/native';
+import { Container, ButtonsContainer, Button, ButtonText } from './styles';
 
 export default () => {
 	const navigation = useNavigation<propsBottom>();
-	const { height, width } = useWindowDimensions();
-
-	const buttonsWidth = width * 0.6;
 
 	return (
-		<View style={styles.container}>
-			<TouchableOpacity onPress={() => navigation.goBack()}>
-				<View style={[styles.buttonsContainer, { height: height * 0.5 }]}>
-					<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
-						<Text style={styles.buttonText}>Adicionar Meta</Text>
-					</TouchableOpacity>
+		<Container onPress={() => navigation.goBack()}>
+				<ButtonsContainer>
+					<Button>
+						<ButtonText>Adicionar Meta</ButtonText>
+					</Button>
 
-					<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
-						<Text style={styles.buttonText}>Adicionar Gasto</Text>
-					</TouchableOpacity>
+					<Button>
+						<ButtonText>Adicionar Gasto</ButtonText>
+					</Button>
 
-					<TouchableOpacity style={[styles.button, { width: buttonsWidth }]}>
-						<Text style={styles.buttonText}>Adicionar Conta</Text>
-					</TouchableOpacity>
-				</View>
-			</TouchableOpacity>
-		</View>
+					<Button>
+						<ButtonText>Adicionar Conta</ButtonText>
+					</Button>
+				</ButtonsContainer>
+		</Container>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		backgroundColor: '#0006',
-	},
-	buttonsContainer: {
-		alignItems: 'center',
-		margin: 0,
-		padding: 0,
-	},
-	button: {
-		margin: 10,
-		padding: 15,
-		alignItems: 'center',
-		justifyContent: 'center',
-		borderRadius: 20,
-		backgroundColor: colors.orange,
-	},
-	buttonText: {
-		color: colors.white,
-		fontSize: 20,
-		fontWeight: 'bold',
-	},
-});
