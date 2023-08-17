@@ -1,146 +1,66 @@
-import {
-	View,
-	Text,
-	Image,
-	StyleSheet,
-	StatusBar,
-	TextInput,
-	TouchableOpacity,
-} from 'react-native';
 import { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import SelectDropdown from 'react-native-select-dropdown';
 import colors from '../../utils/colors';
+import {
+	Container,
+	SafeArea,
+	Title,
+	ProfileContainer,
+	ProfilePicture,
+	ProfileName,
+	OptionsContainer,
+	OptionItem,
+	OptionText,
+	TextInput,
+	LogoutButton,
+	LogoutText,
+} from './styles';
 
 export default () => {
 	const [theme, setTheme] = useState('default');
 
 	return (
-		<SafeAreaView style={styles.container}>
-			<View style={styles.contentArea}>
-				<Text style={styles.title}>Configurações da conta</Text>
+		<Container>
+			<SafeArea>
+				<Title>Configurações da conta</Title>
 
-				<View style={styles.profileContainer}>
-					<Image
-						style={styles.profilePicture}
-						source={require('../../../assets/logo.png')}
-					/>
-					<Text style={styles.profileName}>Olá, {'{user}'}</Text>
-				</View>
+				<ProfileContainer>
+					<ProfilePicture source={require('../../../assets/logo.png')} />
+					<ProfileName>Olá, {'{user}'}</ProfileName>
+				</ProfileContainer>
 
-				<View style={styles.optionsContainer}>
-					<View style={styles.optionItem}>
-						<Text style={styles.optionItemText}>Alterar nome</Text>
-						<TextInput style={styles.textInput} placeholder='{user}' />
-					</View>
+				<OptionsContainer>
+					<OptionItem>
+						<OptionText>Alterar nome</OptionText>
+						<TextInput placeholder='{user}' />
+					</OptionItem>
 
-					<View style={styles.optionItem}>
-						<Text style={styles.optionItemText}>Alterar foto de perfil</Text>
-						<TextInput
-							style={styles.textInput}
-							placeholder='Selecionar Foto'
-						/>
-					</View>
+					<OptionItem>
+						<OptionText>Alterar foto de perfil</OptionText>
+						<TextInput placeholder='Selecionar Foto' />
+					</OptionItem>
 
-					<View style={styles.optionItem}>
-						<Text style={styles.optionItemText}>Tema</Text>
+					<OptionItem>
+						<OptionText>Tema</OptionText>
 						<SelectDropdown
 							data={['Padrão', 'Claro', 'Escuro', 'Alto contraste']}
 							defaultButtonText='Padrão'
 							buttonTextAfterSelection={(selectedItem) => {
 								return selectedItem;
 							}}
-							onSelect={(selectedItem, index) => setTheme(selectedItem)}
+							onSelect={(selectedItem) => setTheme(selectedItem)}
 						/>
-					</View>
+					</OptionItem>
 
-					<TouchableOpacity style={styles.logoutOption}>
-						<Text style={[styles.logoutOptionText, { color: colors.orange }]}>
-							Sair
-						</Text>
-					</TouchableOpacity>
+					<LogoutButton>
+						<LogoutText color={colors.orange}>Sair</LogoutText>
+					</LogoutButton>
 
-					<TouchableOpacity style={styles.logoutOption}>
-						<Text style={[styles.logoutOptionText, { color: '#970159' }]}>
-							Excluir conta
-						</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		</SafeAreaView>
+					<LogoutButton>
+						<LogoutText color='#970159'>Excluir conta</LogoutText>
+					</LogoutButton>
+				</OptionsContainer>
+			</SafeArea>
+		</Container>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		width: '100%',
-		alignItems: 'center',
-	},
-	contentArea: {
-		flex: 1,
-		marginTop: StatusBar.currentHeight,
-		width: '100%',
-		alignItems: 'center',
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: 'bold',
-		color: colors.orange,
-	},
-	profileContainer: {
-		width: '90%',
-		marginVertical: 40,
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
-	profilePicture: {
-		width: 80,
-		height: 80,
-		borderRadius: 50,
-		borderWidth: 1,
-		borderColor: '#0008',
-	},
-	profileName: {
-		fontSize: 25,
-		marginLeft: 30,
-		flexWrap: 'wrap',
-		flexShrink: 1,
-		fontWeight: 'bold',
-	},
-	optionsContainer: {
-		flex: 0.9,
-		width: '100%',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-	},
-	optionItem: {
-		width: '90%',
-		padding: 15,
-		backgroundColor: `${colors.orange}50`,
-		borderRadius: 10,
-		justifyContent: 'space-between',
-	},
-	optionItemText: {
-		fontSize: 18,
-		fontWeight: 'bold',
-	},
-	textInput: {
-		borderRadius: 10,
-		backgroundColor: '#0001',
-		paddingHorizontal: 10,
-		paddingVertical: 5,
-	},
-	logoutOption: {
-		width: '90%',
-		padding: 15,
-		backgroundColor: `${colors.orange}50`,
-		borderRadius: 10,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	logoutOptionText: {
-		fontSize: 18,
-		fontWeight: 'bold',
-	},
-});
