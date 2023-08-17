@@ -24,12 +24,12 @@ export const Title = styled.Text`
 	margin-top: 20px;
 	font-size: 30px;
 	font-weight: 700;
-	color: ${({ theme }) => theme.orange};
+	color: ${({ theme }) => (theme.highContrast ? theme.text : theme.orange)};
 `;
 
 export const Subtitle = styled.Text`
 	margin-bottom: 20px;
 	font-size: 20px;
 	font-weight: 700;
-	color: ${({ theme }) => theme.orange};
+	color: ${({ theme }) => (theme.highContrast ? theme.text : theme.orange)};
 `;

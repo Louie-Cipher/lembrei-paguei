@@ -1,3 +1,4 @@
+import { useTheme } from 'styled-components';
 import {
 	Container,
 	SpaceBetween,
@@ -25,6 +26,7 @@ export default ({
 	currentValue,
 	isExceedGood = false,
 }: LinePercentItemProps) => {
+	const theme = useTheme();
 	return (
 		<Container>
 			<Title>{title}</Title>
@@ -47,7 +49,8 @@ export default ({
 				{currentValue > totalValue && (
 					<MaterialCommunityIcons
 						name={isExceedGood ? 'crown' : 'alert'}
-						color='#ffff00'
+						// color='#ffff00'
+						color={theme.highContrast ? theme.text : '#ffff00'}
 						size={40}
 						style={exceedIcon}
 					/>

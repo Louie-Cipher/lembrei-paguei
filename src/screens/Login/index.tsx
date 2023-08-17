@@ -1,9 +1,7 @@
-import { View, StyleSheet, Text } from 'react-native';
+import { View, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../routes/Stack/Models';
-import { StatusBar } from 'react-native';
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import Colors from '../../utils/colors';
+import { StatusBar } from 'expo-status-bar';
 import {
 	Container,
 	SafeArea,
@@ -21,9 +19,9 @@ export default () => {
 
 	return (
 		<Container>
-			<ExpoStatusBar style='auto' />
+			<StatusBar style='auto' />
 
-			<SafeArea style={styles.contentArea}>
+			<SafeArea>
 				<Title>Login ou cadastro</Title>
 
 				<ButtonsContainer>
@@ -60,52 +58,8 @@ const SocialLoginButton = ({
 	color,
 	backgroundColor,
 }: SocialLoginButtonProps) => (
-	<Button onPress={onPress} backgroundColor={backgroundColor || Colors.white}>
+	<Button onPress={onPress} backgroundColor={backgroundColor || '#fff'}>
 		<View>{icon}</View>
-
 		<SocialLoginText color={color || '#000'}>{text}</SocialLoginText>
 	</Button>
 );
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'space-between',
-		backgroundColor: Colors.white,
-		alignItems: 'center',
-	},
-	contentArea: {
-		flex: 1,
-		marginTop: StatusBar.currentHeight,
-		alignItems: 'center',
-		justifyContent: 'space-evenly',
-	},
-	title: {
-		fontSize: 30,
-		fontWeight: 'bold',
-	},
-	buttonsContainer: {
-		width: '80%',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	socialLoginButton: {
-		width: '80%',
-		flexDirection: 'row',
-		paddingHorizontal: 20,
-		paddingVertical: 10,
-		marginVertical: 10,
-		borderRadius: 50,
-		shadowColor: '#000',
-		shadowRadius: 5,
-		elevation: 5,
-		justifyContent: 'space-between',
-		alignItems: 'center',
-	},
-	socialLoginText: {
-		flex: 1,
-		textAlign: 'center',
-		fontSize: 18,
-		fontWeight: '500',
-	},
-});

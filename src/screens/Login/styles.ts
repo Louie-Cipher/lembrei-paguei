@@ -4,14 +4,15 @@ import { StatusBar } from 'react-native';
 export const Container = styled.View`
 	background-color: ${(props) => props.theme.background};
 	flex: 1;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 `;
 
 export const SafeArea = styled.SafeAreaView`
 	flex: 1;
+	width: 100%;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
 	margin-top: ${StatusBar.currentHeight}px;
 `;
 
@@ -19,6 +20,7 @@ export const Title = styled.Text`
 	color: ${(props) => props.theme.text};
 	font-size: 30px;
 	font-weight: bold;
+	margin-top: 40px;
 `;
 
 export const ButtonsContainer = styled.View`
@@ -33,22 +35,23 @@ interface ButtonProps {
 }
 
 export const Button = styled.TouchableOpacity<ButtonProps>`
-	background-color: ${(props) => props.backgroundColor};
+	background-color: ${(props) =>
+		props.theme.highContrast ? '#ffff00' : props.backgroundColor};
 	width: 100%;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	margin: 5px 0;
-	padding: 10px 20px;
+	padding: 5px 10px;
 	border-radius: 50px;
-	box-shadow: 0px 0px 5px #000000;
 `;
 
 interface ButtonTextProps {
 	color: string;
 }
 export const SocialLoginText = styled.Text<ButtonTextProps>`
-	color: ${(props) => props.color};
+	color: ${(props) => (props.theme.highContrast ? '#000000' : props.color)};
+	flex: 1;
 	text-align: center;
 	font-size: 18px;
 	font-weight: 500;
