@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SelectDropdown from 'react-native-select-dropdown';
-import colors from '../../utils/colors';
+import colors from '../../../utils/colors';
 import {
 	Container,
 	SafeArea,
@@ -18,6 +18,11 @@ import {
 
 export default () => {
 	const [theme, setTheme] = useState('default');
+
+	const onChangeTheme = (theme: string) => {
+		// TODO: Handle theme change
+		return theme;
+	}
 
 	return (
 		<Container>
@@ -45,9 +50,8 @@ export default () => {
 						<SelectDropdown
 							data={['Padrão', 'Claro', 'Escuro', 'Alto contraste']}
 							defaultButtonText='Padrão'
-							buttonTextAfterSelection={(selectedItem) => {
-								return selectedItem;
-							}}
+							buttonTextAfterSelection={onChangeTheme}
+							buttonStyle={{ width: '100%' }}
 							onSelect={(selectedItem) => setTheme(selectedItem)}
 						/>
 					</OptionItem>

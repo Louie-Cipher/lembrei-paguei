@@ -6,11 +6,11 @@ import styled from 'styled-components/native';
 import { useTheme } from 'styled-components';
 
 // screens
-import Home from '../../screens/Home';
-import Graphics from '../../screens/Graphics';
-import AddConta from '../../screens/AddConta';
-import Settings from '../../screens/Settings';
-import Contas from '../../screens/Contas';
+import Home from '../../screens/main/Home';
+import Graphics from '../../screens/main/Graphics';
+import AddConta from '../../screens/main/AddConta';
+import Settings from '../../screens/main/Settings';
+import Contas from '../../screens/main/Contas';
 
 // icons
 import { AntDesign } from '@expo/vector-icons';

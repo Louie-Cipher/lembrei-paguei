@@ -1,16 +1,15 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { propsStack } from '../../routes/Stack/Models';
-import LinePercentItem from '../../components/LinePercentItem';
+import { propsStack } from '../../../routes/Stack/Models';
+import LinePercentItem from '../../../components/LinePercentItem';
 import { Container, SafeArea, Title, Subtitle } from './styles';
 
 export default function Home() {
 	const navigation = useNavigation<propsStack>();
 
 	return (
-		<Container>
+		<Container source={require('../../../assets/circles-background.svg')} resizeMode='cover'>
 			<SafeArea>
-
 				<Title>Olá, {'{user}'}</Title>
 				<Subtitle>Seu resumo</Subtitle>
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { StatusBar } from 'react-native';
 
-export const Container = styled.View`
+export const Container = styled.ImageBackground`
 	background-color: ${({ theme }) => theme.background};
 	flex: 1;
 	width: 100%;

@@ -1,8 +1,8 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Image } from 'react-native';
-import colors from '../../utils/colors';
+import colors from '../../../utils/colors';
 import { useNavigation } from '@react-navigation/native';
-import { propsStack } from '../../routes/Stack/Models';
+import { propsStack } from '../../../routes/Stack/Models';
 import {
 	Container,
 	SafeAreaView,

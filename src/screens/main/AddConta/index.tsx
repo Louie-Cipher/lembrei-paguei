@@ -1,4 +1,4 @@
-import { propsBottom } from '../../routes/Bottom/Models';
+import { propsBottom } from '../../../routes/Bottom/Models';
 import { useNavigation } from '@react-navigation/native';
 import { Container, ButtonsContainer, Button, ButtonText } from './styles';
 

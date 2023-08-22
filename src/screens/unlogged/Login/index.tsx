@@ -1,6 +1,6 @@
 import { View, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { propsStack } from '../../routes/Stack/Models';
+import { propsStack } from '../../../routes/Stack/Models';
 import { StatusBar } from 'expo-status-bar';
 import {
 	Container,

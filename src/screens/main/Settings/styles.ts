@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { StyleProp, ViewStyle } from 'react-native';
 import { StatusBar } from 'react-native';
 
 export const Container = styled.View`
@@ -10,7 +11,10 @@ export const Container = styled.View`
 
 export const SafeArea = styled.SafeAreaView`
 	flex: 1;
+	width: 100%;
+	align-items: center;
 	margin-top: ${StatusBar.currentHeight || 0}px;
+	margin-bottom: 30px;
 `;
 
 export const Title = styled.Text`
@@ -31,7 +35,7 @@ export const ProfilePicture = styled.Image`
 	height: 80px;
 	border-radius: 50px;
 	border-width: 2px;
-	border-color: ${({ theme }) => theme.text}80;
+	border-color: ${({ theme }) => theme.text};
 `;
 
 export const ProfileName = styled.Text`
@@ -51,7 +55,7 @@ export const OptionsContainer = styled.View`
 `;
 
 export const OptionItem = styled.View`
-	background-color: ${({ theme }) => theme.orange}50;
+	background-color: ${({ theme }) => theme.orange}aa;
 	width: 100%;
 	padding: 15px;
 	border-radius: 10px;
@@ -65,13 +69,19 @@ export const OptionText = styled.Text`
 `;
 
 export const TextInput = styled.TextInput`
-	background-color: ${({ theme }) => theme.text}10;
+	background-color: ${({ theme }) => theme.text}20;
 	border-radius: 10px;
 	padding: 10px 5px;
 `;
 
+export const Select: StyleProp<ViewStyle> = {
+	backgroundColor: '#ffffff',
+	borderRadius: 10,
+	padding: 10,
+};
+
 export const LogoutButton = styled.TouchableOpacity`
-	background-color: ${({ theme }) => theme.orange}50;
+	background-color: ${({ theme }) => theme.orange}aa;
 	width: 100%;
 	padding: 15px;
 	border-radius: 10px;

@@ -10,7 +10,7 @@ export const Container = styled.View`
 
 export const SafeAreaView = styled.SafeAreaView`
 	flex: 1;
-    width: 100%;
+	width: 100%;
 	align-items: center;
 	justify-content: center;
 	margin-top: ${StatusBar.currentHeight}px;
@@ -23,7 +23,7 @@ export const TitleContainer = styled.View`
 `;
 
 interface TitleProps {
-    color: string;
+	color: string;
 }
 export const TitleText = styled.Text<TitleProps>`
 	color: ${({ color }) => color};
