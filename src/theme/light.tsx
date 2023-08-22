@@ -1,6 +1,6 @@
 export default {
 	background: '#ffffff',
-	text: '#000',
+	text: '#000000',
 	orange: '#FF914D',
 	green: '#82DF78',
 	quarterTone: '#f2f2f2',
