@@ -8,7 +8,10 @@ export default function Home() {
 	const navigation = useNavigation<propsStack>();
 
 	return (
-		<Container source={require('../../../assets/circles-background.svg')} resizeMode='cover'>
+		<Container
+			source={require('../../../../assets/circles-background.png')}
+			imageStyle={{ resizeMode: 'cover', opacity: 0.4 }}
+		>
 			<SafeArea>
 				<Title>Olá, {'{user}'}</Title>
 				<Subtitle>Seu resumo</Subtitle>
