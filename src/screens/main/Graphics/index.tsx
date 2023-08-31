@@ -1,14 +1,8 @@
-import { Text } from 'react-native';
-import { View } from 'react-native';
-import { StatusBar } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { View, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar';
-import { useNavigation } from '@react-navigation/native';
-import { propsStack } from '../../../routes/Stack/Models';
 
 export default function Home() {
-	const navigation = useNavigation<propsStack>();
 
 	return (
 		<View style={styles.container}>
