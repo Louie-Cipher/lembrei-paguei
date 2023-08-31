@@ -1,24 +1,34 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { propsNavigationBottomTabs } from './Models';
+import {
+	createBottomTabNavigator,
+	BottomTabNavigationProp,
+} from '@react-navigation/bottom-tabs';
 import styled from 'styled-components/native';
 import { useTheme } from 'styled-components';
 
 // screens
-import Home from '../../screens/main/Home';
-import Graphics from '../../screens/main/Graphics';
-import AddConta from '../../screens/main/AddConta';
-import Settings from '../../screens/main/Settings';
-import Contas from '../../screens/main/Contas';
+import Home from '../screens/main/Home';
+import Graphics from '../screens/main/Graphics';
+import AddConta from '../screens/main/AddConta';
+import Settings from '../screens/main/Settings';
+import Contas from '../screens/main/entries/Index';
 
 // icons
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-import AddIcon from '../../../assets/add.svg';
+import AddIcon from '../../assets/add.svg';
 
-const { Navigator, Screen } = createBottomTabNavigator<propsNavigationBottomTabs>();
+// navigation
+type navigationBottomTabs = {
+	AddConta: undefined;
+	Home: { userId: string };
+	Profile: { userId: string };
+	Graficos: { userId: string };
+	Contas: { userId: string };
+};
+export type mainBottom = BottomTabNavigationProp<navigationBottomTabs>;
+const { Navigator, Screen } = createBottomTabNavigator<navigationBottomTabs>();
 
 export default () => {
 	const theme = useTheme();
@@ -40,7 +50,8 @@ export default () => {
 					backgroundColor: theme.highContrast
 						? theme.background
 						: theme.quarterTone,
-					borderColor: theme.highContrast ? theme.text : theme.quarterTone,
+					// borderColor: theme.highContrast ? theme.text : theme.quarterTone,
+					borderColor: '#0000',
 				},
 			}}
 			backBehavior='initialRoute'
@@ -49,7 +60,7 @@ export default () => {
 				name='Home'
 				component={Home}
 				options={{
-					tabBarIcon: ({ focused, color, size }) => (
+					tabBarIcon: ({ size }) => (
 						<ButtonContainer>
 							<AntDesign name='home' size={size} color={buttonColor} />
 						</ButtonContainer>
@@ -60,7 +71,7 @@ export default () => {
 				name='Graficos'
 				component={Graphics}
 				options={{
-					tabBarIcon: ({ focused, color, size }) => (
+					tabBarIcon: ({ size }) => (
 						<ButtonContainer>
 							<FontAwesome
 								name='bar-chart'
@@ -75,7 +86,7 @@ export default () => {
 				name='AddConta'
 				component={AddConta}
 				options={{
-					tabBarIcon: ({ focused, color, size }) => (
+					tabBarIcon: ({ size }) => (
 						<AddIcon
 							width={size * 2.5}
 							height={size * 2.5}
@@ -91,7 +102,7 @@ export default () => {
 				name='Contas'
 				component={Contas}
 				options={{
-					tabBarIcon: ({ focused, color, size }) => (
+					tabBarIcon: ({ size }) => (
 						<ButtonContainer>
 							<FontAwesome5
 								name='file-invoice-dollar'
@@ -107,7 +118,7 @@ export default () => {
 				name='Profile'
 				component={Settings}
 				options={{
-					tabBarIcon: ({ focused, color, size }) => (
+					tabBarIcon: ({ size }) => (
 						<ButtonContainer>
 							<FontAwesome
 								name='user-circle-o'
@@ -125,5 +136,5 @@ export default () => {
 const ButtonContainer = styled.View`
 	padding: 10px;
 	border-radius: 100px;
-	background-color: ${({ theme }) => theme.highContrast ? '#ff0' : 'transparent'};
+	background-color: ${({ theme }) => (theme.highContrast ? '#ff0' : 'transparent')};
 `;
