@@ -1,8 +1,7 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Image } from 'react-native';
-import colors from '../../../utils/colors';
 import { useNavigation } from '@react-navigation/native';
-import { propsStack } from '../../../routes/Stack/Models';
+import { propsRootStack } from '../../../routes/Models';
 import {
 	Container,
 	SafeAreaView,
@@ -12,21 +11,23 @@ import {
 	NextButton,
 	NextButtonText,
 } from './styles';
+import { useTheme } from 'styled-components';
 
 export default () => {
-	const navigation = useNavigation<propsStack>();
+	const navigation = useNavigation<propsRootStack>();
+	const theme = useTheme();
 
 	return (
 		<Container>
 			<SafeAreaView>
 				<Image
-					source={require('../../../assets/logo.png')}
+					source={require('../../../../assets/logo.png')}
 					style={{ width: 100, height: 100, margin: 0, padding: 0 }}
 				/>
 
 				<TitleContainer>
-					<TitleText color={colors.orange}>Lembrei,</TitleText>
-					<TitleText color={colors.green}>Paguei!</TitleText>
+					<TitleText color={theme.orange}>Lembrei,</TitleText>
+					<TitleText color={theme.green}>Paguei!</TitleText>
 				</TitleContainer>
 
 				<SubtitleText>
