@@ -38,6 +38,7 @@ export const Button = styled.TouchableOpacity<ButtonProps>`
 	background-color: ${(props) =>
 		props.theme.highContrast ? '#ffff00' : props.backgroundColor};
 	width: 100%;
+	elevation: 5;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
