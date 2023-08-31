@@ -1,9 +1,9 @@
-import { propsBottom } from '../../../routes/Bottom/Models';
+import { mainBottom } from '../../../routes/MainBottom';
 import { useNavigation } from '@react-navigation/native';
 import { Container, ButtonsContainer, Button, ButtonText } from './styles';
 
 export default () => {
-	const navigation = useNavigation<propsBottom>();
+	const navigation = useNavigation<mainBottom>();
 
 	return (
 		<Container onPress={() => navigation.goBack()}>
