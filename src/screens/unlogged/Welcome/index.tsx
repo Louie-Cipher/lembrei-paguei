@@ -1,7 +1,7 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { propsRootStack } from '../../../routes/Models';
+import { rootStack } from '../../../routes/RootStack';
 import {
 	Container,
 	SafeAreaView,
@@ -14,7 +14,7 @@ import {
 import { useTheme } from 'styled-components';
 
 export default () => {
-	const navigation = useNavigation<propsRootStack>();
+	const navigation = useNavigation<rootStack>();
 	const theme = useTheme();
 
 	return (
