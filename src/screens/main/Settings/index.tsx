@@ -22,7 +22,7 @@ export default () => {
 	const onChangeTheme = (theme: string) => {
 		// TODO: Handle theme change
 		return theme;
-	}
+	};
 
 	return (
 		<Container>
@@ -30,7 +30,7 @@ export default () => {
 				<Title>Configurações da conta</Title>
 
 				<ProfileContainer>
-					<ProfilePicture source={require('../../../assets/logo.png')} />
+					<ProfilePicture source={require('../../../../assets/logo.png')} />
 					<ProfileName>Olá, {'{user}'}</ProfileName>
 				</ProfileContainer>
 

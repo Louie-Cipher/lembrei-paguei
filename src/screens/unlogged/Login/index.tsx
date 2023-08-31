@@ -1,4 +1,4 @@
-import { View, } from 'react-native';
+import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../../../routes/Stack/Models';
 import { StatusBar } from 'expo-status-bar';
@@ -11,8 +11,8 @@ import {
 	SocialLoginText,
 } from './styles';
 
-import GoogleLogo from '../../../assets/google-g-logo.svg';
-import FacebookLogo from '../../../assets/facebook-logo.svg';
+import GoogleLogo from '../../../../assets/google-g-logo.svg';
+import FacebookLogo from '../../../../assets/facebook-logo.svg';
 
 export default () => {
 	const navigation = useNavigation<propsStack>();
