@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { propsStack } from '../../../routes/Stack/Models';
+import { rootStack } from '../../../routes/RootStack';
 import { StatusBar } from 'expo-status-bar';
 import {
 	Container,
@@ -15,7 +15,7 @@ import GoogleLogo from '../../../../assets/google-g-logo.svg';
 import FacebookLogo from '../../../../assets/facebook-logo.svg';
 
 export default () => {
-	const navigation = useNavigation<propsStack>();
+	const navigation = useNavigation<rootStack>();
 
 	return (
 		<Container>
