@@ -1,6 +1,17 @@
 {
 	"extends": "expo/tsconfig.base",
 	"compilerOptions": {
-		"strict": true
+		"strict": true,
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+			"@assets/*": ["src/assets/*"],
+			"@routes/*": ["src/routes/*"],
+			"@screens/*": ["src/screens/*"],
+			"@components/*": ["src/components/*"]
+		},
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"esModuleInterop": true
 	}
 }
