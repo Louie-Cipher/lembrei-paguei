@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	createBottomTabNavigator,
 	BottomTabNavigationProp,
@@ -7,25 +7,23 @@ import styled from 'styled-components/native';
 import { useTheme } from 'styled-components';
 
 // screens
-import Home from '../screens/main/Home';
-import Graphics from '../screens/main/Graphics';
-import AddConta from '../screens/main/AddConta';
-import Settings from '../screens/main/Settings';
-import Contas from '../screens/main/entries/Index';
+import Home from 'screens/main/Home';
+import Groups from 'routes/GroupStack';
+import AddEntries from 'routes/AddEntriesStack';
+import Settings from 'screens/main/Settings';
+import Entries from 'routes/EntriesStack';
 
 // icons
-import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import AddIcon from '../../assets/add.svg';
+import { AntDesign, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import AddIcon from '../assets/add.svg';
 
 // navigation
 type navigationBottomTabs = {
-	AddConta: undefined;
+	AddEntry: undefined;
 	Home: { userId: string };
 	Profile: { userId: string };
-	Graficos: { userId: string };
-	Contas: { userId: string };
+	Groups: { userId: string };
+	Entries: { userId: string };
 };
 export type mainBottom = BottomTabNavigationProp<navigationBottomTabs>;
 const { Navigator, Screen } = createBottomTabNavigator<navigationBottomTabs>();
@@ -33,7 +31,7 @@ const { Navigator, Screen } = createBottomTabNavigator<navigationBottomTabs>();
 export default () => {
 	const theme = useTheme();
 
-	const [buttonColor, setButtonColor] = React.useState<string>(theme.orange);
+	const [buttonColor, setButtonColor] = useState<string>(theme.orange);
 
 	useEffect(() => {
 		setButtonColor(theme.highContrast ? theme.background : theme.orange);
@@ -49,8 +47,8 @@ export default () => {
 				tabBarStyle: {
 					backgroundColor: theme.highContrast
 						? theme.background
-						: theme.quarterTone,
-					// borderColor: theme.highContrast ? theme.text : theme.quarterTone,
+						: theme.higherTone,
+					// borderColor: theme.highContrast ? theme.text : theme.higherTone,
 					borderColor: '#0000',
 				},
 			}}
@@ -65,26 +63,23 @@ export default () => {
 							<AntDesign name='home' size={size} color={buttonColor} />
 						</ButtonContainer>
 					),
+					unmountOnBlur: true,
 				}}
 			/>
 			<Screen
-				name='Graficos'
-				component={Graphics}
+				name='Groups'
+				component={Groups}
 				options={{
 					tabBarIcon: ({ size }) => (
 						<ButtonContainer>
-							<FontAwesome
-								name='bar-chart'
-								size={size}
-								color={buttonColor}
-							/>
+							<FontAwesome name='group' size={size} color={buttonColor} />
 						</ButtonContainer>
 					),
 				}}
 			/>
 			<Screen
-				name='AddConta'
-				component={AddConta}
+				name='AddEntry'
+				component={AddEntries}
 				options={{
 					tabBarIcon: ({ size }) => (
 						<AddIcon
@@ -99,8 +94,8 @@ export default () => {
 			/>
 
 			<Screen
-				name='Contas'
-				component={Contas}
+				name='Entries'
+				component={Entries}
 				options={{
 					tabBarIcon: ({ size }) => (
 						<ButtonContainer>
@@ -111,6 +106,7 @@ export default () => {
 							/>
 						</ButtonContainer>
 					),
+					unmountOnBlur: true,
 				}}
 			/>
 

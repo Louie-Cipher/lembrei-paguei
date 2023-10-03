@@ -4,6 +4,10 @@ import {
 	NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 
+import Login from 'screens/unlogged/Login';
+import Welcome from 'screens/unlogged/Welcome';
+import MainBottomTabs from './MainBottom';
+
 type navigationRootStack = {
 	Welcome: undefined;
 	Login: undefined;
@@ -11,18 +15,17 @@ type navigationRootStack = {
 };
 export type rootStack = NativeStackNavigationProp<navigationRootStack>;
 
-import Login from '../screens/unlogged/Login';
-import Welcome from '../screens/unlogged/Welcome';
-import LoggedRoutes from './MainBottom';
-
 const { Navigator, Screen } = createNativeStackNavigator<navigationRootStack>();
 
 export default () => {
 	return (
-		<Navigator initialRouteName='Welcome' screenOptions={{ headerShown: false }}>
+		<Navigator
+			initialRouteName='Welcome'
+			screenOptions={{ headerShown: false, animation: 'none' }}
+		>
 			<Screen name='Welcome' component={Welcome} />
 			<Screen name='Login' component={Login} />
-			<Screen name='LoggedRoutes' component={LoggedRoutes} />
+			<Screen name='LoggedRoutes' component={MainBottomTabs} />
 		</Navigator>
 	);
 };
