@@ -1,16 +1,6 @@
 import styled from 'styled-components/native';
 import { StatusBar } from 'react-native';
 
-export const Container = styled.ImageBackground`
-	background-color: ${({ theme }) => theme.background};
-	flex: 1;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-	margin: 0;
-	padding: 0;
-`;
-
 export const SafeArea = styled.SafeAreaView`
 	flex: 1;
 	width: 90%;
