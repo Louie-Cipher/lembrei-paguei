@@ -1,12 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
-import { stackEntries } from '../../../../routes/EntriesStack';
-import { Button, ButtonText, Container, SafeArea } from './styles';
+import { entriesStack } from 'routes/EntriesStack';
+import CirclesBackground from 'components/CirclesBackground';
+import { Button, ButtonText, SafeArea } from './styles';
 
 export default () => {
-	const navigation = useNavigation<stackEntries>();
+	const navigation = useNavigation<entriesStack>();
 
 	return (
-		<Container>
+		<CirclesBackground style={{ justifyContent: 'flex-end' }}>
 			<SafeArea>
 				<Button onPress={() => navigation.navigate('Contas')}>
 					<ButtonText>Contas</ButtonText>
@@ -20,6 +21,6 @@ export default () => {
 					<ButtonText>Gastos</ButtonText>
 				</Button>
 			</SafeArea>
-		</Container>
+		</CirclesBackground>
 	);
 };
