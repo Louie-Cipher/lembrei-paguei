@@ -87,9 +87,7 @@ export default () => {
 					<InputName>Data de vencimento</InputName>
 					{Platform.OS === 'android' ? (
 						<DateButton onPress={handleDateButton}>
-							<ButtonText>
-								{dateToString(data)}
-							</ButtonText>
+							<ButtonText>{dateToString(data)}</ButtonText>
 						</DateButton>
 					) : (
 						<DateTimePicker

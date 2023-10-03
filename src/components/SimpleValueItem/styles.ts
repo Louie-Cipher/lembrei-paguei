@@ -25,10 +25,10 @@ export const Title = styled.Text`
 `;
 
 export const Item = styled.View`
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 5px;
 `;
 
 export const Key = styled.Text`

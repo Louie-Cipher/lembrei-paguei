@@ -45,7 +45,7 @@ export default () => {
 			nome,
 			valor: valorAtualNum,
 			valorTotal: valorTotalNum,
-			valorAtual: valorAtualNum
+			valorAtual: valorAtualNum,
 		})
 			.then(() => {
 				Alert.alert('Sucesso', 'Meta salva com sucesso', [

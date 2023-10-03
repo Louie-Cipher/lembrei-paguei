@@ -13,7 +13,6 @@ export const stringToDate = (string: string) => {
 	date.setFullYear(Number(stringSplited[0]));
 
 	return date;
-}
+};
 
-export const dbDateString = (string: string) =>
-	dateToString(stringToDate(string));
+export const dbDateString = (string: string) => dateToString(stringToDate(string));

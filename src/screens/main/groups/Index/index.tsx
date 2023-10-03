@@ -60,19 +60,13 @@ const Item = ({ title, date, participants, totalValue }: ItemProps) => {
 			</ItemContentLine>
 
 			<ItemContentLine>
-				<ItemText>
-					Valor Total
-				</ItemText>
-				<ItemText>
-					R$ {totalValue.toFixed(2).replace('.', ',')}
-				</ItemText>
+				<ItemText>Valor Total</ItemText>
+				<ItemText>R$ {totalValue.toFixed(2).replace('.', ',')}</ItemText>
 			</ItemContentLine>
 			<ItemContentLine>
+				<ItemText>Valor por pessoa</ItemText>
 				<ItemText>
-					Valor por pessoa
-				</ItemText>
-				<ItemText>R${' '}
-					{(totalValue / participants).toFixed(2).replace('.', ',')}
+					R$ {(totalValue / participants).toFixed(2).replace('.', ',')}
 				</ItemText>
 			</ItemContentLine>
 		</ItemContainer>

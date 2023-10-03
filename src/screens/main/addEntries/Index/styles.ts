@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.TouchableOpacity`
-    background-color: #00000000;
+	background-color: #00000000;
 	flex: 1;
 	align-items: center;
 	justify-content: flex-end;

@@ -16,9 +16,7 @@ const pages: Page[] = [
 		backgroundColor: '#74ca54',
 		title: 'Boas vindas ao Lembrei, Paguei!',
 		subtitle: 'Seu app de controle financeiro',
-		image: (
-			<Image source={require('../../../assets/logo.png')} style={styles.image} />
-		),
+		image: <Image source={require('assets/logo.png')} style={styles.image} />,
 	},
 	{
 		backgroundColor: '#d5b777',

@@ -10,11 +10,8 @@ export default () => {
 		<CirclesBackground>
 			<Container onPress={() => navigation.goBack()}>
 				<ButtonsContainer>
-
 					<Button onPress={() => navigation.navigate('SetGastoLimit')}>
-						<ButtonText style={{ fontSize: 15 }}>
-							Limite de Gastos
-						</ButtonText>
+						<ButtonText style={{ fontSize: 15 }}>Limite de Gastos</ButtonText>
 					</Button>
 
 					<Button onPress={() => navigation.navigate('AddMeta')}>
