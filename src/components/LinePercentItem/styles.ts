@@ -32,7 +32,8 @@ export const SpaceBetween = styled.View`
 `;
 
 export const LineTotal = styled.View`
-	background-color: #ffffff;
+	/* background-color: #ffffff; */
+	background-color: ${({ theme }) => (theme.highContrast ? '#888888' : '#ffffff')};
 	width: 100%;
 	height: 15px;
 	border-radius: 10px;
@@ -43,8 +44,10 @@ interface ILineCurrent {
 	isExceedGood: boolean;
 }
 export const LineCurrent = styled.View<ILineCurrent>`
-	background-color: ${(props) =>
-		props.theme.highContrast ? '#555555' : percentToHSL(props.percent)};
+	background-color: ${({ theme, isExceedGood, percent }) =>
+		theme.highContrast
+			? '#ffffff'
+			: percentToHSL(isExceedGood ? percent : 100 - percent)};
 	width: ${(props) => props.percent}%;
 	height: 100%;
 	border-radius: 10px;
@@ -57,4 +60,4 @@ export const exceedIcon: StyleProp<ViewStyle> = {
 	transform: [{ rotate: '20deg' }],
 };
 
-const percentToHSL = (percent: number) => `hsl(${percent}, 90%, 45%)`;
+const percentToHSL = (percent: number) => `hsl(${percent}, 95%, 50%)`;
