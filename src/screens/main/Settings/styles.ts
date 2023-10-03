@@ -17,6 +17,10 @@ export const SafeArea = styled.SafeAreaView`
 	margin-bottom: 30px;
 `;
 
+export const Scroll = styled.ScrollView`
+	width: 100%;
+`;
+
 export const Title = styled.Text`
 	color: ${({ theme }) => theme.text};
 	font-size: 20px;
@@ -30,12 +34,19 @@ export const ProfileContainer = styled.View`
 	align-items: center;
 `;
 
-export const ProfilePicture = styled.Image`
+export const ProfilePictureFrame = styled.View`
 	width: 80px;
 	height: 80px;
 	border-radius: 50px;
 	border-width: 2px;
 	border-color: ${({ theme }) => theme.text};
+	/* border-color: #000000; */
+`;
+
+export const ProfilePicture = styled.Image`
+	width: 100%;
+	height: 100%;
+	border-radius: 50px;
 `;
 
 export const ProfileName = styled.Text`
