@@ -1,9 +1,9 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { rootStack } from '../../../routes/RootStack';
+import { rootStack } from 'routes/RootStack';
+import CirclesBackground from 'components/CirclesBackground';
 import {
-	Container,
 	SafeAreaView,
 	TitleContainer,
 	TitleText,
@@ -18,10 +18,10 @@ export default () => {
 	const theme = useTheme();
 
 	return (
-		<Container>
+		<CirclesBackground>
 			<SafeAreaView>
 				<Image
-					source={require('../../../../assets/logo.png')}
+					source={require('../../../assets/logo.png')}
 					style={{ width: 100, height: 100, margin: 0, padding: 0 }}
 				/>
 
@@ -39,6 +39,6 @@ export default () => {
 
 				<ExpoStatusBar style='auto' />
 			</SafeAreaView>
-		</Container>
+		</CirclesBackground>
 	);
 };
