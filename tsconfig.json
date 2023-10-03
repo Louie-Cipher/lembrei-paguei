@@ -5,13 +5,18 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["src/*"],
-			"@assets/*": ["src/assets/*"],
-			"@routes/*": ["src/routes/*"],
-			"@screens/*": ["src/screens/*"],
-			"@components/*": ["src/components/*"]
+			"db/*": ["src/db/*"],
+			"utils/*": ["src/utils/*"],
+			"assets/*": ["src/assets/*"],
+			"routes/*": ["src/routes/*"],
+			"screens/*": ["src/screens/*"],
+			"components/*": ["src/components/*"]
 		},
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"strictPropertyInitialization": false,
 		"esModuleInterop": true
 	}
 }
