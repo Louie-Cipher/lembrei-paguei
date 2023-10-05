@@ -7,12 +7,15 @@ export const dateToString = (date: Date) =>
 
 export const stringToDate = (string: string) => {
 	let date = new Date();
-	let stringSplited = string.split('-');
-	date.setDate(Number(stringSplited[2]));
-	date.setMonth(Number(stringSplited[1]) - 1);
-	date.setFullYear(Number(stringSplited[0]));
+	const stringSplitted = string.split('-');
+	date.setDate(Number(stringSplitted[2]));
+	date.setMonth(Number(stringSplitted[1]) - 1);
+	date.setFullYear(Number(stringSplitted[0]));
 
 	return date;
 };
 
+
+
 export const dbDateString = (string: string) => dateToString(stringToDate(string));
+const a = 1;
