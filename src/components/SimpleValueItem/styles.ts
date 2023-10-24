@@ -24,6 +24,12 @@ export const Title = styled.Text`
 	margin-bottom: 10px;
 `;
 
+export const ButtonsContainer = styled.View`
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+`;
+
 export const Item = styled.View`
 	flex-direction: row;
 	justify-content: space-between;
@@ -35,6 +41,7 @@ export const Key = styled.Text`
 	color: ${({ theme }) => theme.text};
 	font-size: 16px;
 	font-weight: bold;
+	margin-right: 10px;
 `;
 
 export const Value = styled.Text`
