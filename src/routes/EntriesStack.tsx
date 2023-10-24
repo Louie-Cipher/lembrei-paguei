@@ -3,10 +3,10 @@ import {
 	createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 
-import Index from 'screens/main/entries/Index';
-import Contas from 'screens/main/entries/Contas';
-import Gastos from 'screens/main/entries/Gastos';
-import Metas from 'screens/main/entries/Metas';
+import Index from 'entriesScreen/Index';
+import Contas from 'entriesScreen/Contas';
+import Gastos from 'entriesScreen/Gastos';
+import Metas from 'entriesScreen/Metas';
 
 export type navigationEntriesStack = {
 	Index: undefined;

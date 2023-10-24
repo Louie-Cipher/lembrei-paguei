@@ -1,22 +1,28 @@
+import { RouteProp} from '@react-navigation/native';
 import {
 	NativeStackNavigationProp,
 	createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 
-import Index from 'screens/main/addEntries/Index';
-import Contas from 'screens/main/addEntries/Conta';
-import Gastos from 'screens/main/addEntries/Gasto';
-import Metas from 'screens/main/addEntries/Meta';
-import GastoLimit from 'screens/main/addEntries/GastoLimit';
+import Index from 'addEntriesScreen/Index';
+import Contas from 'addEntriesScreen/Conta';
+import Gastos from 'addEntriesScreen/Gasto';
+import Metas from 'addEntriesScreen/Meta';
+import GastoLimit from 'addEntriesScreen/GastoLimit';
+import { Conta, Gasto, Meta } from 'db/entities';
 
 export type navigationAddEntriesStack = {
 	Index: undefined;
-	AddConta: undefined;
-	AddGasto: undefined;
-	AddMeta: undefined;
+	AddConta: { conta?: Conta };
+	AddGasto: { gasto?: Gasto };
+	AddMeta: { meta?: Meta };
 	SetGastoLimit: undefined;
 };
 export type addEntriesStack = NativeStackNavigationProp<navigationAddEntriesStack>;
+
+export type AddContaRouteProp = RouteProp<navigationAddEntriesStack, 'AddConta'>;
+export type AddGastoRouteProp = RouteProp<navigationAddEntriesStack, 'AddGasto'>;
+export type AddMetaRouteProp = RouteProp<navigationAddEntriesStack, 'AddMeta'>;
 
 const { Navigator, Screen } = createNativeStackNavigator<navigationAddEntriesStack>();
 

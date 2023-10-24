@@ -3,8 +3,8 @@ import {
 	createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 
-import Index from 'screens/main/groups/Index';
-import Group from 'screens/main/groups/Group';
+import Index from 'groupsScreen/Index';
+import Group from 'groupsScreen/Group';
 
 export type navigationEntriesStack = {
 	Index: undefined;
