@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm/browser';
-import { DB } from '.';
 
 @Entity({ name: 'conta' })
 export class Conta {
