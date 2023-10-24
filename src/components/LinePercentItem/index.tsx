@@ -9,6 +9,8 @@ import {
 	exceedIcon,
 } from './styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { numberToReal } from 'utils/number';
 
 interface LinePercentItemProps {
 	title: string;
@@ -17,6 +19,8 @@ interface LinePercentItemProps {
 	currentLabel: string;
 	currentValue: number;
 	isExceedGood?: boolean | undefined;
+	onDeleteButton?: () => void;
+	onEditButton?: () => void;
 }
 export default ({
 	title,
@@ -25,17 +29,37 @@ export default ({
 	currentLabel,
 	currentValue,
 	isExceedGood = false,
+	onDeleteButton,
+	onEditButton,
 }: LinePercentItemProps) => {
 	const theme = useTheme();
 	return (
 		<Container>
-			<Title>{title}</Title>
+			<Title>
+				{title}
+				{onEditButton && (
+					<AntDesign
+						name='edit'
+						size={24}
+						color={theme.higherTone}
+						onPress={onEditButton}
+					/>
+				)}
+				{onDeleteButton && (
+					<AntDesign
+						name='delete'
+						size={24}
+						color={theme.higherTone}
+						onPress={onDeleteButton}
+					/>
+				)}
+			</Title>
 			<SpaceBetween>
 				<Text>
-					{currentLabel} R${currentValue.toFixed(2).replace('.', ',')}
+					{currentLabel} {numberToReal(currentValue)}
 				</Text>
 				<Text>
-					{totalLabel} R${totalValue.toFixed(2).replace('.', ',')}
+					{totalLabel} {numberToReal(totalValue)}
 				</Text>
 			</SpaceBetween>
 
