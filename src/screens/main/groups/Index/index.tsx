@@ -8,6 +8,7 @@ import {
 	ItemContentLine,
 } from './styles';
 import { dateToString } from 'utils/date';
+import { numberToReal } from 'utils/number';
 
 export default () => {
 	return (
@@ -61,12 +62,12 @@ const Item = ({ title, date, participants, totalValue }: ItemProps) => {
 
 			<ItemContentLine>
 				<ItemText>Valor Total</ItemText>
-				<ItemText>R$ {totalValue.toFixed(2).replace('.', ',')}</ItemText>
+				<ItemText>{numberToReal(totalValue)}</ItemText>
 			</ItemContentLine>
 			<ItemContentLine>
 				<ItemText>Valor por pessoa</ItemText>
 				<ItemText>
-					R$ {(totalValue / participants).toFixed(2).replace('.', ',')}
+					{numberToReal(totalValue / participants)}
 				</ItemText>
 			</ItemContentLine>
 		</ItemContainer>
