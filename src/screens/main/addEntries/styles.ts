@@ -33,7 +33,7 @@ export const TextInput = styled.TextInput`
 `;
 
 export const DateItem = styled.View`
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 	width: 90%;
 	margin: 10px;
@@ -58,4 +58,13 @@ export const ButtonText = styled.Text`
 	color: ${({ theme }) => theme.text};
 	font-size: 20px;
 	text-align: center;
+`;
+
+export const Switch = styled.Switch`
+	color: #000;
+`;
+
+export const SpaceBetween = styled.View`
+	flex-direction: row;
+	align-items: center;
 `;
