@@ -15,7 +15,4 @@ export const stringToDate = (string: string) => {
 	return date;
 };
 
-
-
 export const dbDateString = (string: string) => dateToString(stringToDate(string));
-const a = 1;
