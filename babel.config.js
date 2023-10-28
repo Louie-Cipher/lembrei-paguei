@@ -15,6 +15,9 @@ module.exports = function (api) {
 						'routes': './src/routes',
 						'screens': './src/screens',
 						'components': './src/components',
+						'entriesScreen': './src/screens/main/entries',
+						'addEntriesScreen': './src/screens/main/addEntries',
+						'groupsScreen': './src/screens/main/groups'
 					},
 				},
 			],
