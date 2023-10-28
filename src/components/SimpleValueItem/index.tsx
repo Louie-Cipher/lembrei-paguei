@@ -38,7 +38,7 @@ export default ({
 	}
 	const Button = ({ name, onPress }: ButtonProps) => (
 		<Key onPress={onPress}>
-			<AntDesign name={name} size={24} color={theme.higherTone} />
+			<AntDesign name={name} size={24} color={theme.orange} />
 		</Key>
 	);
 

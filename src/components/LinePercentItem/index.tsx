@@ -41,7 +41,7 @@ export default ({
 					<AntDesign
 						name='edit'
 						size={24}
-						color={theme.higherTone}
+						color={theme.orange}
 						onPress={onEditButton}
 					/>
 				)}
@@ -49,7 +49,7 @@ export default ({
 					<AntDesign
 						name='delete'
 						size={24}
-						color={theme.higherTone}
+						color={theme.orange}
 						onPress={onDeleteButton}
 					/>
 				)}
