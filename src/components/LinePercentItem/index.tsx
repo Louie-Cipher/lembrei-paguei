@@ -7,6 +7,9 @@ import {
 	LineTotal,
 	LineCurrent,
 	exceedIcon,
+	Buttons,
+	TitleContainer,
+	Button,
 } from './styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -35,25 +38,31 @@ export default ({
 	const theme = useTheme();
 	return (
 		<Container>
-			<Title>
-				{title}
-				{onEditButton && (
-					<AntDesign
-						name='edit'
-						size={24}
-						color={theme.orange}
-						onPress={onEditButton}
-					/>
-				)}
-				{onDeleteButton && (
-					<AntDesign
-						name='delete'
-						size={24}
-						color={theme.orange}
-						onPress={onDeleteButton}
-					/>
-				)}
-			</Title>
+			<TitleContainer>
+				<Title>{title}</Title>
+				<Buttons>
+					{onEditButton && (
+						<Button>
+							<AntDesign
+								name='edit'
+								size={24}
+								color={theme.orange}
+								onPress={onEditButton}
+							/>
+						</Button>
+					)}
+					{onDeleteButton && (
+						<Button>
+							<AntDesign
+								name='delete'
+								size={24}
+								color={theme.orange}
+								onPress={onDeleteButton}
+							/>
+						</Button>
+					)}
+				</Buttons>
+			</TitleContainer>
 			<SpaceBetween>
 				<Text>
 					{currentLabel} {numberToReal(currentValue)}
@@ -74,7 +83,7 @@ export default ({
 					<MaterialCommunityIcons
 						name={isExceedGood ? 'crown' : 'alert'}
 						// color='#ffff00'
-						color={theme.highContrast ? theme.text : '#ffff00'}
+						color='#ffff00'
 						size={40}
 						style={exceedIcon}
 					/>
