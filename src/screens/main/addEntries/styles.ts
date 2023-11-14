@@ -24,10 +24,14 @@ export const InputName = styled.Text`
 	margin: 10px;
 `;
 
-export const TextInput = styled.TextInput`
-	background-color: ${({ theme }) => theme.lowerTone}aa;
-	color: ${({ theme }) => theme.text};
+export const TextInput = styled.TextInput.attrs(({ theme }) => ({
+	placeholderTextColor: theme.highContrast ? theme.text : theme.higherTone,
+}))`
+	background-color: ${({ theme }) =>
+		theme.highContrast ? 'transparent' : theme.lowerTone};
+	border: ${({ theme }) => (theme.highContrast ? '1px solid #ffffff' : 'none')};
 	border-radius: 10px;
+	color: ${({ theme }) => theme.text};
 	padding: 5px 10px;
 	margin: 10px 0;
 `;
@@ -62,6 +66,7 @@ export const ButtonText = styled.Text`
 
 export const Switch = styled.Switch`
 	color: #000;
+	padding: 10px 0;
 `;
 
 export const SpaceBetween = styled.View`
