@@ -1,36 +1,50 @@
 {
-  "expo": {
-    "name": "lembrei-paguei",
-    "slug": "lembrei-paguei",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./src/assets/logo.png",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./src/assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.lembreiPaguei"
-    },
-    "web": {
-      "favicon": "./src/assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "6a82f60a-ffb2-46ff-96b0-e8b602293511"
-      }
-    }
-  }
+	"expo": {
+		"name": "lembrei-paguei",
+		"slug": "lembrei-paguei",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./src/assets/logo.png",
+		"userInterfaceStyle": "automatic",
+		"splash": {
+			"image": "./src/assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"googleServicesFile": "./GoogleService-Info.plist",
+			"supportsTablet": true
+		},
+		"android": {
+			"googleServicesFile": "./google-services.json",
+			"adaptiveIcon": {
+				"foregroundImage": "./src/assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"package": "com.lembreiPaguei"
+		},
+		"web": {
+			"favicon": "./src/assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "6a82f60a-ffb2-46ff-96b0-e8b602293511"
+			}
+		},
+		"plugins": [
+			[
+				"expo-build-properties",
+				{
+					"android": {
+						"compileSdkVersion": 33,
+						"targetSdkVersion": 33,
+						"minSdkVersion": 21,
+						"buildToolsVersion": "31.0.0"
+					}
+				}
+			],
+			["@react-native-google-signin/google-signin"]
+		]
+	}
 }
