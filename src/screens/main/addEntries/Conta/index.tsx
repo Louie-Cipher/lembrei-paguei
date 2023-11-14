@@ -149,15 +149,15 @@ const DateItemContainer = ({ title, date, setDate, toggle }: DateItemContainerPr
 					<ButtonText>Pago</ButtonText>
 					<Switch
 						thumbColor='#fff'
-						trackColor={{ false: '#f00', true: '#0f0' }}
+						trackColor={{ false: '#aaa', true: '#0f0' }}
 						onValueChange={() => setShow(!show)}
 						value={show}
 					/>
 				</SpaceBetween>
 			)}
-			<InputName>{title}</InputName>
-			{show ? (
+			{(show || !toggle) && (
 				<>
+					<InputName>{title}</InputName>
 					{Platform.OS === 'android' ? (
 						<DateButton onPress={handleDateButton}>
 							<ButtonText>{dateToString(date)}</ButtonText>
@@ -171,8 +171,6 @@ const DateItemContainer = ({ title, date, setDate, toggle }: DateItemContainerPr
 						/>
 					)}
 				</>
-			) : (
-				<></>
 			)}
 		</DateItem>
 	);
