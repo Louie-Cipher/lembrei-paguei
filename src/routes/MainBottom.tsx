@@ -51,6 +51,7 @@ export default () => {
 					// borderColor: theme.highContrast ? theme.text : theme.higherTone,
 					borderColor: '#0000',
 				},
+				unmountOnBlur: true,
 			}}
 			backBehavior='initialRoute'
 		>
