@@ -1,7 +1,15 @@
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
+import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { rootStack } from '@/routes/RootStack';
+import { rootStack } from 'routes/RootStack';
 import { StatusBar } from 'expo-status-bar';
+import auth from '@react-native-firebase/auth';
+import {
+	GoogleSignin,
+	GoogleSigninButton,
+	User,
+	statusCodes,
+} from '@react-native-google-signin/google-signin';
 import {
 	Container,
 	SafeArea,
@@ -11,12 +19,51 @@ import {
 	SocialLoginText,
 } from './styles';
 
-import GoogleLogo from '../../../assets/google-g-logo.svg';
-import FacebookLogo from '../../../assets/facebook-logo.svg';
+import FacebookLogo from 'assets/facebook-logo.svg';
+import googleServices from '@root/google-services.json';
 
 export default () => {
 	const navigation = useNavigation<rootStack>();
 
+	const [loginError, setLoginError] = useState<typeof statusCodes>();
+	const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
+
+	useEffect(() => {
+		GoogleSignin.configure({
+			webClientId: googleServices.client[0].oauth_client[0].client_id,
+		});
+	}, []);
+
+	const googleSignIn = async () => {
+		try {
+			await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+			const userInfo = await GoogleSignin.signIn();
+
+			const googleCredential = auth.GoogleAuthProvider.credential(userInfo.idToken);
+
+			const authorization = await auth().signInWithCredential(googleCredential);
+
+			if (authorization.user) {
+				navigation.navigate('LoggedRoutes');
+			}
+		} catch (error: any) {
+			setLoginError(error.code as typeof statusCodes);
+
+			if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+				// user cancelled the login flow
+			} else if (error.code === statusCodes.IN_PROGRESS) {
+				// operation (e.g. sign in) is in progress already
+
+				setButtonDisabled(true);
+			} else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+				// play services not available or outdated
+
+				setButtonDisabled(true);
+			} else {
+				console.log(error);
+			}
+		}
+	};
 	return (
 		<Container>
 			<StatusBar style='auto' />
@@ -25,10 +72,10 @@ export default () => {
 				<Title>Login ou cadastro</Title>
 
 				<ButtonsContainer>
-					<SocialLoginButton
-						onPress={() => navigation.navigate('LoggedRoutes')}
-						text='Entrar com Google'
-						icon={<GoogleLogo width={30} height={30} />}
+					<GoogleSigninButton
+						onPress={googleSignIn}
+						disabled={buttonDisabled}
+						size={GoogleSigninButton.Size.Wide}
 					/>
 
 					<SocialLoginButton
