@@ -10,12 +10,27 @@ export const Container = styled.View`
 	border: ${({ theme }) => (theme.highContrast ? '1px solid #ffffff' : 'none')};
 `;
 
+export const TitleContainer = styled.View`
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+`;
+
 export const Title = styled.Text`
 	color: ${({ theme }) => theme.text};
 	font-size: 20px;
 	text-align: center;
 	font-weight: bold;
 	margin-bottom: 10px;
+`;
+
+export const Buttons = styled.View`
+	flex-direction: row;
+	justify-content: space-between;
+`;
+
+export const Button = styled.TouchableOpacity`
+	margin: 0 5px;
 `;
 
 export const Text = styled.Text`
