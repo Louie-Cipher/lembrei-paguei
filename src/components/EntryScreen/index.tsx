@@ -61,8 +61,7 @@ export default ({ title, repository }: EntryScreenProps) => {
 	const editGasto = (gasto: Gasto) =>
 		addEntryNavigation.navigate('AddGasto', { gasto });
 
-	const editMeta = (meta: Meta) =>
-		addEntryNavigation.navigate('AddMeta', { meta });
+	const editMeta = (meta: Meta) => addEntryNavigation.navigate('AddMeta', { meta });
 
 	const RenderMeta = ({ meta }: { meta: Meta }) => (
 		<LinePercentItem
@@ -72,7 +71,8 @@ export default ({ title, repository }: EntryScreenProps) => {
 			totalLabel='Valor Total'
 			totalValue={meta.valorTotal}
 			isExceedGood
-			
+			onDeleteButton={() => deleteEntry(meta.id)}
+			onEditButton={() => editMeta(meta)}
 		/>
 	);
 
