@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 import { StyleProp, ViewStyle } from 'react-native';
 
 interface CirclesBackgroundProps {
@@ -7,10 +7,12 @@ interface CirclesBackgroundProps {
 }
 
 export default ({ children, style }: CirclesBackgroundProps) => {
+	const theme = useTheme();
+
 	return (
 		<Container
 			source={require('../../assets/circles-background.png')}
-			imageStyle={{ resizeMode: 'cover', opacity: 0.4 }}
+			imageStyle={{ resizeMode: 'cover', opacity: theme.highContrast ? 0 : 0.5 }}
 			style={style || {}}
 		>
 			{children}
